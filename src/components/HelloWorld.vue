@@ -1,36 +1,36 @@
 <template>
     <div class="hello">
         <h1>{{ msg }}</h1>
-            <div class="magrin">
-                <b-alert show>Default Alert</b-alert>
+        <div class="magrin">
+            <b-alert show>Default Alert</b-alert>
 
-                <b-alert variant="success" show>Success Alert</b-alert>
-                <b-alert variant="danger"
-                         dismissible
-                         :show="showDismissibleAlert"
-                         @dismissed="showDismissibleAlert=false">
-                    Dismissible Alert!
-                </b-alert>
+            <b-alert variant="success" show>Success Alert</b-alert>
+            <b-alert variant="danger"
+                     dismissible
+                     :show="showDismissibleAlert"
+                     @dismissed="showDismissibleAlert=false">
+                Dismissible Alert!
+            </b-alert>
 
-                <b-alert :show="dismissCountDown"
-                         dismissible
-                         variant="warning"
-                         @dismissed="dismissCountDown=0"
-                         @dismiss-count-down="countDownChanged">
-                    <p>This alert will dismiss after {{dismissCountDown}} seconds...</p>
-                    <b-progress variant="warning"
-                                :max="dismissSecs"
-                                :value="dismissCountDown"
-                                height="4px">
-                    </b-progress>
-                </b-alert>
+            <b-alert :show="dismissCountDown"
+                     dismissible
+                     variant="warning"
+                     @dismissed="dismissCountDown=0"
+                     @dismiss-count-down="countDownChanged">
+                <p>This alert will dismiss after {{dismissCountDown}} seconds...</p>
+                <b-progress variant="warning"
+                            :max="dismissSecs"
+                            :value="dismissCountDown"
+                            height="4px">
+                </b-progress>
+            </b-alert>
 
-                <b-btn @click="showAlert" variant="info" class="m-1">
-                    Show alert with count-down timer
-                </b-btn>
-                <b-btn @click="showDismissibleAlert=true" variant="info" class="m-1">
-                    Show dismissible alert ({{showDismissibleAlert?'visible':'hidden'}})
-                </b-btn>
+            <b-btn @click="showAlert" variant="info" class="m-1">
+                Show alert with count-down timer
+            </b-btn>
+            <b-btn @click="showDismissibleAlert=true" variant="info" class="m-1">
+                Show dismissible alert ({{showDismissibleAlert?'visible':'hidden'}})
+            </b-btn>
         </div>
         <div class="alert alert-success alert-dismissible fade show mt-1 magrin" role="alert">
             With Bootstrap! Skap Dinh!
@@ -71,12 +71,17 @@
 </template>
 
 <script>
-    import bAlert from 'bootstrap-vue/es/components/alert/alert'
-    import bBtn from 'bootstrap-vue/es/components/button/button'
-    import bProgress from 'bootstrap-vue/es/components/progress/progress'
+    import BAlert from 'bootstrap-vue/es/components/alert/alert'
+    import BBtn from 'bootstrap-vue/es/components/button/button'
+    import BProgress from 'bootstrap-vue/es/components/progress/progress'
 
     export default {
         name: 'HelloWorld',
+        components: {
+            BAlert,
+            BBtn,
+            BProgress
+        },
         props: {
             msg: String
         },
@@ -94,16 +99,10 @@
             showAlert() {
                 this.dismissCountDown = this.dismissSecs
             }
-        },
-        components: {
-            'b-alert': bAlert,
-            'b-btn': bBtn,
-            'b-progress': bProgress
-        },
+        }
     }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
     h3 {
         margin: 40px 0 0;
@@ -122,6 +121,7 @@
     a {
         color: #42b983;
     }
+
     .magrin {
         margin-right: 25%;
         margin-left: 25%;
