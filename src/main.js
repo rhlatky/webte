@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import './plugins/vuetify'
-import Vuetify from 'vuetify'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -9,7 +8,6 @@ import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "bootstrap-vue/dist/bootstrap-vue.css"
 
-Vue.use(Vuetify);
 Vue.use(BootstrapVue);
 Vue.config.productionTip = false;
 new Vue({
