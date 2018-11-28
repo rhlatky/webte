@@ -5,51 +5,55 @@
                 absolute
                 temporary
         >
+            <v-list>
+                <template v-for="(item) in menuItems">
+                    <v-list-tile v-if="!item.haveChilds" :key="item.title">
+                        <v-list-tile-action>
+                            <v-icon>{{item.icon}}</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-title>{{item.title}}</v-list-tile-title>
+                    </v-list-tile>
+                    <template v-if="item.haveChilds">
+                        <v-list-group :key="item.i"
+                                      prepend-icon="account_circle"
+                                      value="true"
+                        >
+                            <v-list-tile slot="activator">
+                                <v-list-tile-title>{{item.title}}</v-list-tile-title>
+                            </v-list-tile>
 
-            <v-list class="pt-0" dense
-                    v-for="item in menuItems"
-                    :key="item.title">
+                            <template v-for="child in item.childs">
 
-                <!--Dont have any childs-->
-                <span v-if="!item.haveChilds">
-                   <v-list-tile @click="TODO"> <!-- TODO -->
-                    <v-list-tile-action>
-                        <v-icon>{{ item.icon }}</v-icon>
-                    </v-list-tile-action>
+                                <v-list-tile class="indent-second-level" :key="child.title" v-if="!child.haveChilds">
+                                    <v-list-tile-title>{{child.title}}</v-list-tile-title>
+                                </v-list-tile>
 
-                    <v-list-tile-content>
-                        <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-               </span>
+                                <v-list-group v-else :key="child.title"
+                                              no-action
+                                              sub-group
+                                              value="true"
+                                >
+                                    <v-list-tile slot="activator">
+                                        <v-list-tile-title>{{child.title}}</v-list-tile-title>
+                                    </v-list-tile>
 
-                <!--have childs-->
-                <span v-if="item.haveChilds">
-                    <v-list-group
-                            :prepend-icon = item.icon
-                            value="true"
-                    >
-                        <v-list-tile slot="activator">
-                            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                        </v-list-tile>
-
-                        <v-list-tile
-                                v-for="(child, i) in item.childs"
-                                :key="i"
-                                @click="TODO">  <!-- TODO -->
-
-                              <v-list-tile-content>
-                                  <v-list-tile-title>{{ child.title }}</v-list-tile-title>
-                              </v-list-tile-content>
-
-                              <v-list-tile-action>
-                                  <v-icon> {{ child.icon}}</v-icon>
-                              </v-list-tile-action>
-                        </v-list-tile>
-                    </v-list-group>
-               </span>
+                                    <v-list-tile
+                                            v-for="(sChild, i) in child.childs"
+                                            :key="i"
+                                            @click=""
+                                    >
+                                        <!--<v-list-tile-action>-->
+                                        <!--<v-icon>{{sChild.icon}}</v-icon>-->
+                                        <!--</v-list-tile-action>-->
+                                        <v-list-tile-title class="indent-third-level">{{sChild.title}}
+                                        </v-list-tile-title>
+                                    </v-list-tile>
+                                </v-list-group>
+                            </template>
+                        </v-list-group>
+                    </template>
+                </template>
             </v-list>
-
         </v-navigation-drawer>
         <v-toolbar dark color="primary">
 
@@ -78,31 +82,43 @@
     </div>
 </template>
 <script>
-export default {
-  name: "AppNavbar",
-  data() {
-    return {
-      menuItems: [
-        {
-          icon: "supervisor_account",
-          title: "View Meetups",
-          haveChilds: false
-        },
-        {
-          icon: "room",
-          title: "Organize Meetup",
-          haveChilds: true,
-          childs: [{ icon: "room", title: "Child 1", haveChilds: false },{ icon: "face", title: "Child 2", haveChilds: false },
-          ]
-        },
-        { icon: "face", title: "Sign up", haveChilds: false },
-        { icon: "lock_open", title: "Sign in", haveChilds: false }
-      ],
-      sideNav: false
+    export default {
+        name: "AppNavbar",
+        data() {
+            return {
+                menuItems: [{icon: "supervisor_account", title: "View Meetups", haveChilds: false},
+                    { icon: "room", title: "Organize Meetup", haveChilds: true, childs: [{
+                                icon: "room",
+                                title: "Child 1",
+                                haveChilds: true,
+                                childs: [{icon: "face", title: "Child 1.2", haveChilds: false}]
+                            },
+                            {icon: "face", title: "Child 2", haveChilds: false}
+                        ]
+                    },
+                    {icon: "face", title: "Sign up", haveChilds: false},
+                    {icon: "lock_open", title: "Sign in", haveChilds: false}
+                ],
+
+                admins: [["Management", "people_outline"], ["Settings", "settings"]],
+                cruds: [
+                    ["Create", "add"],
+                    ["Read", "insert_drive_file"],
+                    ["Update", "update"],
+                    ["Delete", "delete"]
+                ],
+                sideNav: false
+            };
+        }
     };
-  }
-};
 </script>
 
 <style scoped>
+    .indent-second-level {
+        margin-left: 58px;
+    }
+
+    .indent-third-level {
+        margin-left: 20px;
+    }
 </style>
