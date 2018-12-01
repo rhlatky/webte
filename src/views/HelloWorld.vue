@@ -29,7 +29,6 @@
         xs12
       >
         <h2 class="headline font-weight-bold mb-3">What's next?</h2>
-
         <v-layout justify-center>
           <a
             v-for="(next, i) in whatsNext"
