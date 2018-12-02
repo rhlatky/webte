@@ -10,6 +10,7 @@ import Hung from "./views/profiles/HungProfile.vue";
 Vue.use(Router);
 
 export default new Router({
+    linkExactActiveClass: "active",
     routes: [
         {
             path: "/",
