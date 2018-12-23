@@ -1,9 +1,9 @@
 <template>
-  <HelloWorld />
+  <hello-world></hello-world>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+  import HelloWorld from './HelloWorld'
 
   export default {
     components: {

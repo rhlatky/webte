@@ -1,45 +1,47 @@
 <template>
-  <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
-
-    <v-content>
-      <HelloWorld/>
-    </v-content>
-  </v-app>
+    <div>
+        <v-app>
+            <app-navbar></app-navbar>
+            <v-breadcrumbs :items="breadCrumbList" mode="out-in">
+                <v-icon slot="divider">forward</v-icon>
+            </v-breadcrumbs>
+            <v-fade-transition mode="out-in">
+                <router-view/>
+            </v-fade-transition>
+            <v-content>
+            </v-content>
+        </v-app>
+    </div>
 </template>
 
 <script>
-    import { VApp, VToolbar, VToolbarTitle, VSpacer, VBtn, VContent } from 'vuetify/lib'
-    import HelloWorld from './components/HelloWorld'
+    import AppNavbar from './components/navigation/AppNavbar'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld,
-      VApp,
-      VToolbar,
-      VToolbarTitle,
-      VSpacer,
-      VBtn,
-      VContent
-  },
-  data () {
-    return {
-      //
+    export default {
+        name: 'App',
+        components: {
+            AppNavbar,
+        },
+        data() {
+            return {
+                breadCrumbList: []
+            }
+        },
+        watch: {
+            '$route'() {
+                this.breadCrumbList = this.$route.meta.breadCrumb;
+            }
+        }
     }
-  }
-}
 </script>
+
+<style>
+    #navbar a:hover {
+        text-decoration: none;
+        color: black;
+    }
+
+    #toolbar a:hover {
+        text-decoration: none;
+    }
+</style>
