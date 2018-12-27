@@ -6,6 +6,7 @@ import Team from "./views/profiles/Team.vue";
 import Radoslav from "./views/profiles/RadoslavProfile.vue";
 import Dinh from "./views/profiles/DinhProfile.vue";
 import Hung from "./views/profiles/HungProfile.vue";
+import MainArticle from "./views/article/MainArticle.vue"
 
 Vue.use(Router);
 
@@ -47,11 +48,17 @@ export default new Router({
                 ]
             } //TODO meta breadcrumbs
         },
-{
+        {
             path: "/team/hung",
             name: "hung",
             component: Hung
-        }
+        },
+        {
+            path: "/articles/mainarticle",
+            name: "mainarticle",
+            component: MainArticle
+        },
+
 
     ],
     mode:'history'
