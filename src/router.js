@@ -9,6 +9,9 @@ import Hung from "./views/profiles/HungProfile.vue";
 import GameHung from "./views/games/GameHung.vue";
 import GameDinh from "./views/games/GameDinh.vue";
 
+import MainArticle from "./views/article/MainArticle.vue"
+
+
 Vue.use(Router);
 
 export default new Router({
@@ -64,6 +67,11 @@ export default new Router({
             path: "/game/Dinh",
             name: "GameHung",
             component: GameDinh
+        },
+        {
+            path: "/articles/mainarticle",
+            name: "mainarticle",
+            component: MainArticle
         }
 
     ],
