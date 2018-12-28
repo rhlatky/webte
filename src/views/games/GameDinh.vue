@@ -107,7 +107,7 @@
                 // ev.dataTransfer.setData("text", ev.target.id);
                 for (let i = 0; i < dragID.length; i++) {
                     if (ev.target.id === dragID[i]) {
-                        this.set_zIndex(dropID[i]);
+                        // this.set_zIndex(dropID[i]);
                         ev.dataTransfer.setData("Part" + i, ev.target.id);
                         // return;
                     }
