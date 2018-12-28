@@ -2,6 +2,10 @@
     <div id="mainContainer">
         <h1>Dinh Nguyen Tien Game 111111a</h1>
         <a href="https://www.w3schools.com/HTML/html5_draganddrop.asp" target="_blank">Zdroj</a>
+        <h2>
+            <label id="minutes">00</label>:<label id="seconds">00</label>
+        </h2>
+
         <!--<v-layout align-center justify-center row fill-height>-->
         <!--&lt;!&ndash;<div id="map-Antananarivo" v-on:drop="drop" v-on:dragover="allowDrop"></div>&ndash;&gt;-->
         <!--&lt;!&ndash;<div id="map-Antisiranana" v-on:drop="drop" v-on:dragover="allowDrop"></div>&ndash;&gt;-->
@@ -32,46 +36,32 @@
                     <div id="seal-part2" v-on:drop="drop" v-on:dragover="allowDrop"></div>
 
                     <div id="parts-to-drag">
-                        <img id="drag-map-Antananarivo" draggable="true" v-on:dragstart="drag" src="./imgDinh/Antananarivo.png"
+                        <img id="drag-map-Antananarivo" draggable="true" v-on:dragstart="drag"
+                             src="./imgDinh/Antananarivo.png"
                              alt="map-Antanarivo">
-                        <img id="drag-map-Fianarantsoa" draggable="true" v-on:dragstart="drag" src="./imgDinh/Fianarantsoa.png"
+                        <img id="drag-map-Fianarantsoa" draggable="true" v-on:dragstart="drag"
+                             src="./imgDinh/Fianarantsoa.png"
                              alt="map-Fianarantsoa">
-                        <img id="drag-map-Mahajanga" draggable="true" v-on:dragstart="drag" src="./imgDinh/Mahajanga.png"
+                        <img id="drag-map-Mahajanga" draggable="true" v-on:dragstart="drag"
+                             src="./imgDinh/Mahajanga.png"
                              alt="map-Mahajanga">
-                        <img id="drag-map-Toamasina" draggable="true" v-on:dragstart="drag" src="./imgDinh/Toamasina.png"
+                        <img id="drag-map-Toamasina" draggable="true" v-on:dragstart="drag"
+                             src="./imgDinh/Toamasina.png"
                              alt="map-Toamasina">
                         <img id="drag-map-Toliara" draggable="true" v-on:dragstart="drag" src="./imgDinh/Toliara.png"
                              alt="map-Toliara">
-                        <img id="drag-map-Antisiranana" draggable="true" v-on:dragstart="drag" src="./imgDinh/antisiranana2.png"
+                        <img id="drag-map-Antisiranana" draggable="true" v-on:dragstart="drag"
+                             src="./imgDinh/antisiranana2.png"
                              alt="map-Antisiranana">
                         <img id="drag-seal-part1" draggable="true" v-on:dragstart="drag" src="./imgDinh/Seal_1.png"
                              alt="flag-white">
-                        <img id="drag-seal-part2" draggable="true" v-on:dragstart="drag" src="./imgDinh/Seal_2.png" alt="flag-red">
-                        <!--<img id="drag-flag-green" draggable="true" v-on:dragstart="drag" src="./imgDinh/flag3rs.png"-->
-                        <!--alt="flag-green">-->
+                        <img id="drag-seal-part2" draggable="true" v-on:dragstart="drag" src="./imgDinh/Seal_2.png"
+                             alt="flag-red">
                     </div>
                     <!--</v-card>-->
                 </v-flex>
             </v-layout>
         </v-container>
-
-
-        <!--<div class="con" id="map">-->
-        <!--&lt;!&ndash;<div id="map-Antananarivo" v-on:drop="drop" v-on:dragover="allowDrop"></div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<div id="map-Antisiranana" v-on:drop="drop" v-on:dragover="allowDrop"></div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<div id="map-Fianarantsoa" v-on:drop="drop" v-on:dragover="allowDrop"></div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<div id="map-Mahajanga" v-on:drop="drop" v-on:dragover="allowDrop"></div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<div id="map-Toamasin" v-on:drop="drop" v-on:dragover="allowDrop"></div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<div id="map-Toliara" v-on:drop="drop" v-on:dragover="allowDrop"></div>&ndash;&gt;-->
-        <!--</div>-->
-
-        <!--<div id="flag">-->
-        <!--<div id="flag-white"></div>-->
-        <!--<div id="flag-red"></div>-->
-        <!--<div id="flag-green"></div>-->
-        <!--</div>-->
-
-
 
     </div>
 
@@ -118,15 +108,38 @@
                 for (let i = 0; i < dropID.length; i++) {
                     if (ev.target.id === dropID[i]) {
                         let data = ev.dataTransfer.getData("Part" + i);
-                        if (data)
+                        if (data) {
                             ev.target.appendChild(document.getElementById(data));
-                            // ev.target.style.backgroundImage = document.getElementById(data);
-                        break;
+                            ev.target.style.backgroundImage = "none";
+                            break;
+                        }
                     }
                 }
                 // ev.preventDefault();
                 // let data = ev.dataTransfer.getData("Part1");
                 // ev.target.appendChild(document.getElementById(data));
+            },
+            watch: function watch() {
+                //https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
+                let minutesLabel = document.getElementById("minutes");
+                let secondsLabel = document.getElementById("seconds");
+                let totalSeconds = 0;
+                setInterval(setTime, 1000);
+
+                function setTime() {
+                    ++totalSeconds;
+                    secondsLabel.innerHTML = pad(totalSeconds % 60);
+                    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+                }
+
+                function pad(val) {
+                    let valString = val + "";
+                    if (valString.length < 2) {
+                        return "0" + valString;
+                    } else {
+                        return valString;
+                    }
+                }
             }
         }
     }
@@ -229,7 +242,7 @@
         z-index: -1;
     }
 
-    #seal-part1{
+    #seal-part1 {
         position: relative;
         background-image: url("imgDinh/Seal_1_Blank.png");
         width: 310px;
@@ -239,7 +252,7 @@
         /*border: 2px solid blue;*/
     }
 
-    #seal-part2{
+    #seal-part2 {
         position: relative;
         background-image: url("imgDinh/Seal_2_Blank.png");
         width: 170px;
