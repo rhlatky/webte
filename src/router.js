@@ -65,7 +65,7 @@ export default new Router({
         },
         {
             path: "/game/Dinh",
-            name: "GameHung",
+            name: "GameDinh",
             component: GameDinh
         },
         {
