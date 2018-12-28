@@ -1,26 +1,17 @@
 <template>
     <div id="mainContainer">
-        <h1>Dinh Nguyen Tien Game 111111a</h1>
-        <a href="https://www.w3schools.com/HTML/html5_draganddrop.asp" target="_blank">Zdroj</a>
+        <h1>DnT's "Puzzle" </h1>
+        <!--<a href="https://www.w3schools.com/HTML/html5_draganddrop.asp" target="_blank">Zdroj</a>-->
         <h2>
+            <span id="gameOver">Vyhral si, som rád</span>
             <label id="minutes">00</label>:<label id="seconds">00</label>
         </h2>
+        <div>
+            <button id="playButton" v-on:click="watch">Play</button>
+            <button id="restartButton" v-on:click="restart">Restart</button>
+            <button id="demoButton" v-on:click="demo">Demo</button>
 
-        <!--<v-layout align-center justify-center row fill-height>-->
-        <!--&lt;!&ndash;<div id="map-Antananarivo" v-on:drop="drop" v-on:dragover="allowDrop"></div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<div id="map-Antisiranana" v-on:drop="drop" v-on:dragover="allowDrop"></div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<div id="map-Fianarantsoa" v-on:drop="drop" v-on:dragover="allowDrop"></div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<div id="map-Mahajanga" v-on:drop="drop" v-on:dragover="allowDrop"></div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<div id="map-Toamasina" v-on:drop="drop" v-on:dragover="allowDrop"></div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<div id="map-Toliara" v-on:drop="drop" v-on:dragover="allowDrop"></div>&ndash;&gt;-->
-
-        <!--&lt;!&ndash;<div id="flag">&ndash;&gt;-->
-        <!--&lt;!&ndash;<div id="flag-white"></div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<div id="flag-red"></div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<div id="flag-green"></div>&ndash;&gt;-->
-        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-        <!--</v-layout>-->
+        </div>
 
         <v-container grid-list-md text-xs-center id="v">
             <v-layout row wrap>
@@ -69,6 +60,8 @@
 </template>
 
 <script>
+    let dropped = 0;
+    let timer;
     let dragID = ["drag-map-Antananarivo", "drag-map-Fianarantsoa", "drag-map-Mahajanga", "drag-map-Toamasina", "drag-map-Toliara",
         "drag-map-Antisiranana", "drag-seal-part1", "drag-seal-part2"];
 
@@ -79,6 +72,7 @@
     export default {
         name: "gameDinh",
         methods: {
+            //https://www.w3schools.com/HTML/html5_draganddrop.asp
             set_zIndex: function set_zIndex(dropID_zIndex) {
                 for (let i = 0; i < dropID.length; i++) {
                     let id = dropID_zIndex; //je to tu, aby mi nepodciarkovalo, ze dropID_zIndex je unused -_-
@@ -111,36 +105,59 @@
                         if (data) {
                             ev.target.appendChild(document.getElementById(data));
                             ev.target.style.backgroundImage = "none";
-                            break;
+                            dropped++;
+                            if (dropped === 8) {
+                                clearInterval(timer);
+                                document.getElementById("gameOver").style.display = "block";
+                                document.getElementById("gameOver").style.background = "no-drop";
+
+                                return;
+                            }
+                            return;
                         }
                     }
                 }
-                // ev.preventDefault();
-                // let data = ev.dataTransfer.getData("Part1");
-                // ev.target.appendChild(document.getElementById(data));
+
             },
             watch: function watch() {
                 //https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
-                let minutesLabel = document.getElementById("minutes");
-                let secondsLabel = document.getElementById("seconds");
-                let totalSeconds = 0;
-                setInterval(setTime, 1000);
-
-                function setTime() {
-                    ++totalSeconds;
-                    secondsLabel.innerHTML = pad(totalSeconds % 60);
-                    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
-                }
+                dropped = 0;
+                document.getElementById("parts-to-drag").style.display = "block";
+                document.getElementById("playButton").disabled = true;
+                document.getElementById("playButton").style.background = 'red';
+                let sec = 0;
 
                 function pad(val) {
-                    let valString = val + "";
-                    if (valString.length < 2) {
-                        return "0" + valString;
-                    } else {
-                        return valString;
-                    }
+                    return val > 9 ? val : "0" + val;
                 }
-            }
+
+                timer = setInterval(function () {
+                    document.getElementById("seconds").innerHTML = pad(++sec % 60);
+                    document.getElementById("minutes").innerHTML = pad(parseInt(sec / 60, 10));
+                }, 1000);
+
+            },
+            restart: function restart() {
+//                this.$forceUpdate();
+                location.reload();
+
+            },
+            demo: function demo() {
+                document.getElementById("playButton").disabled = true;
+                document.getElementById("parts-to-drag").style.display = "block";
+                setTimeout(function () {
+                    document.getElementById(dropID[0]).appendChild(document.getElementById(dragID[0]));
+                    document.getElementById(dropID[0]).style.backgroundImage = "none";
+                }, 10000)
+
+                // for (let i = 0; i < dropID.length;i++) {
+                //     setTimeout(function (){}, 1000);
+                //     document.getElementById(dropID[i]).appendChild(document.getElementById(dragID[i]));
+                //     document.getElementById(dropID[i]).style.backgroundImage = "none";
+                // }
+            },
+
+
         }
     }
 </script>
@@ -265,10 +282,36 @@
 
     #parts-to-drag {
         margin-top: 300px;
+        display: none;
     }
 
     #parts-to-drag img {
         margin: 0 5px;
     }
+
+    #gameOver {
+        display: none;
+    }
+
+    button {
+        background-color: white; /* Green */
+        border: 1px solid black;
+        color: black;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        /*-webkit-transition-duration: 0.4s; !* Safari *!*/
+        /*transition-duration: 0.4s;*/
+        /*cursor: pointer;*/
+    }
+
+    /*button:hover {*/
+    /*background-color: #4CAF50;*/
+    /*color: white;*/
+    /*}*/
+
 
 </style>
