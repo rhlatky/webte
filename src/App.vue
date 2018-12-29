@@ -8,8 +8,6 @@
             <v-fade-transition mode="out-in">
                 <router-view/>
             </v-fade-transition>
-            <v-content>
-            </v-content>
         </v-app>
     </div>
 </template>

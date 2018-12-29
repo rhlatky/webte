@@ -13,10 +13,11 @@
 
         </div>
 
-        <v-container grid-list-md text-xs-center fluid>
+        <v-container  grid-list-md text-xs-center fluid>
             <v-layout align-start justify-center row>
-                <v-flex xs12>
+                <v-flex xs12 id ="puzzleFlex">
                     <!--<v-card>-->
+                    <div id ="myAnimation"></div>
                     <div id="map-Antananarivo" v-on:drop="drop" v-on:dragover="allowDrop"></div>
                     <div id="map-Antisiranana" v-on:drop="drop" v-on:dragover="allowDrop"></div>
                     <div id="map-Fianarantsoa" v-on:drop="drop" v-on:dragover="allowDrop"></div>
@@ -154,8 +155,8 @@
                 //     document.getElementById(dropID[0]).appendChild(document.getElementById(dragID[0]));
                 //     document.getElementById(dropID[0]).style.backgroundImage = "none";
                 // }, 1000)
-
-                for (let i = 0; i < dropID.length;i++) {
+                myMove();
+                for (let i = 1; i < dropID.length;i++) {
                     setTimeout(function (){
                         document.getElementById(dropID[i]).appendChild(document.getElementById(dragID[i]));
                         document.getElementById(dropID[i]).style.backgroundImage = "none";
@@ -163,7 +164,29 @@
 
                 }
 
+                function myMove() {
+                        let elem = document.getElementById("myAnimation");
+                        elem.style.zIndex = "10";
+                        elem.appendChild(document.getElementById(dragID[0]));
 
+                    let posX = 550;
+                    let posY = 0;
+                    let id = setInterval(frame, 5);
+                    function frame() {
+                        if (posX === 420) {
+                            clearInterval(id);
+                            elem.style.zIndex = "-1";
+                            document.getElementById(dropID[0]).style.backgroundImage = "none";
+                            document.getElementById("map-Antananarivo").appendChild(document.getElementById(dragID[0]));
+
+                        } else {
+                            posX--;
+                            posY -= 2;
+                            elem.style.top = posX + 'px';
+                            elem.style.left = posY + 'px';
+                        }
+                    }
+                }
             },
 
 
@@ -173,16 +196,6 @@
 
 <style scoped>
 
-    #v {
-        margin-top: 200px;
-    }
-
-    #map {
-        /*margin-left: 572px;*/
-        margin-top: 200px;
-        /*border: 2px solid pink;*/
-    }
-
     #map-Antananarivo {
         position: relative;
         background-image: url("imgDinh/AntananarivoBlank.png");
@@ -191,7 +204,7 @@
         margin-left: 572px;
         margin-top: 48px;
         /*border: 2px solid pink;*/
-        border: 2px solid blue;
+        /*border: 2px solid blue;*/
         z-index: 5;
 
     }
@@ -203,7 +216,7 @@
         height: 180px;
         margin-left: 661px;
         margin-top: -348px;
-        border: 2px solid red;
+        /*border: 2px solid red;*/
         z-index: -1;
 
     }
@@ -215,7 +228,7 @@
         height: 180px;
         margin-left: 662px;
         margin-top: -348px;
-        border: 2px solid red;
+        /*border: 2px solid red;*/
         /*border: 2px solid red;*/
         z-index: 1;
 
@@ -228,7 +241,7 @@
         height: 180px;
         margin-left: 553px;
         margin-top: 148px;
-        border: 2px solid red;
+        /*border: 2px solid red;*/
         z-index: 1;
 
     }
@@ -240,7 +253,7 @@
         height: 228px;
         margin-left: 512px;
         margin-top: -425px;
-        border: 2px solid red;
+        /*border: 2px solid red;*/
         z-index: -1;
 
     }
@@ -252,7 +265,7 @@
         height: 250px;
         margin-left: 655px;
         margin-top: -191px;
-        border: 2px solid red;
+        /*border: 2px solid red;*/
         z-index: 1;
 
     }
@@ -264,7 +277,7 @@
         height: 310px;
         margin-left: 485px;
         margin-top: -110px;
-        border: 2px solid red;
+        /*border: 2px solid red;*/
         z-index: -1;
     }
 
@@ -277,7 +290,6 @@
         margin-top: -400px;
         /*border: 2px solid blue;*/
     }
-
     #seal-part2 {
         position: relative;
         background-image: url("imgDinh/Seal_2_Blank.png");
@@ -316,6 +328,24 @@
         /*-webkit-transition-duration: 0.4s; !* Safari *!*/
         /*transition-duration: 0.4s;*/
         /*cursor: pointer;*/
+    }
+
+    #mainContainer{
+        margin: 0 20px;
+    }
+
+    #puzzleFlex{
+        margin-top: 50px;
+    }
+
+    #myAnimation {
+        width: 110px;
+        height: 115px;
+        position: absolute;
+        /*background-color: red;*/
+        margin-top: -50px;
+        margin-left: 880px;
+        z-index: -1;
     }
 
     /*button:hover {*/
