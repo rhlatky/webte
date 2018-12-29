@@ -13,8 +13,8 @@
 
         </div>
 
-        <v-container grid-list-md text-xs-center id="v">
-            <v-layout row wrap>
+        <v-container grid-list-md text-xs-center fluid>
+            <v-layout align-start justify-center row>
                 <v-flex xs12>
                     <!--<v-card>-->
                     <div id="map-Antananarivo" v-on:drop="drop" v-on:dragover="allowDrop"></div>
@@ -73,16 +73,16 @@
         name: "gameDinh",
         methods: {
             //https://www.w3schools.com/HTML/html5_draganddrop.asp
-            set_zIndex: function set_zIndex(dropID_zIndex) {
-                for (let i = 0; i < dropID.length; i++) {
-                    let id = dropID_zIndex; //je to tu, aby mi nepodciarkovalo, ze dropID_zIndex je unused -_-
-                    if (id === dropID[i]) {
-                        document.getElementById(dropID[i]).style.zIndex = "1";
-                    } else
-                        document.getElementById(dropID[i]).style.zIndex = "0";
-
-                }
-            },
+            //     set_zIndex: function set_zIndex(dropID_zIndex) {
+            //     for (let i = 0; i < dropID.length; i++) {
+            //         let id = dropID_zIndex; //je to tu, aby mi nepodciarkovalo, ze dropID_zIndex je unused -_-
+            //         if (id === dropID[i]) {
+            //             document.getElementById(dropID[i]).style.zIndex = "1";
+            //         } else
+            //             document.getElementById(dropID[i]).style.zIndex = "0";
+            //
+            //     }
+            // }
             allowDrop: function allowDrop(ev) {
                 ev.preventDefault();
                 // console.log("something");
@@ -125,6 +125,8 @@
                 document.getElementById("parts-to-drag").style.display = "block";
                 document.getElementById("playButton").disabled = true;
                 document.getElementById("playButton").style.background = 'red';
+                document.getElementById("demoButton").style.background = "red";
+                document.getElementById("demoButton").disabled = true;
                 let sec = 0;
 
                 function pad(val) {
@@ -143,18 +145,25 @@
 
             },
             demo: function demo() {
+                document.getElementById("playButton").style.background = "red";
                 document.getElementById("playButton").disabled = true;
+                document.getElementById("demoButton").style.background = "red";
+                document.getElementById("demoButton").disabled = true;
                 document.getElementById("parts-to-drag").style.display = "block";
-                setTimeout(function () {
-                    document.getElementById(dropID[0]).appendChild(document.getElementById(dragID[0]));
-                    document.getElementById(dropID[0]).style.backgroundImage = "none";
-                }, 10000)
+                // setTimeout(function () {
+                //     document.getElementById(dropID[0]).appendChild(document.getElementById(dragID[0]));
+                //     document.getElementById(dropID[0]).style.backgroundImage = "none";
+                // }, 1000)
 
-                // for (let i = 0; i < dropID.length;i++) {
-                //     setTimeout(function (){}, 1000);
-                //     document.getElementById(dropID[i]).appendChild(document.getElementById(dragID[i]));
-                //     document.getElementById(dropID[i]).style.backgroundImage = "none";
-                // }
+                for (let i = 0; i < dropID.length;i++) {
+                    setTimeout(function (){
+                        document.getElementById(dropID[i]).appendChild(document.getElementById(dragID[i]));
+                        document.getElementById(dropID[i]).style.backgroundImage = "none";
+                    }, i*1000);
+
+                }
+
+
             },
 
 
@@ -182,7 +191,7 @@
         margin-left: 572px;
         margin-top: 48px;
         /*border: 2px solid pink;*/
-        /*border: 2px solid blue;*/
+        border: 2px solid blue;
         z-index: 5;
 
     }
@@ -194,7 +203,7 @@
         height: 180px;
         margin-left: 661px;
         margin-top: -348px;
-        /*border: 2px solid red;*/
+        border: 2px solid red;
         z-index: -1;
 
     }
@@ -206,7 +215,7 @@
         height: 180px;
         margin-left: 662px;
         margin-top: -348px;
-        /*border: 2px solid red;*/
+        border: 2px solid red;
         /*border: 2px solid red;*/
         z-index: 1;
 
@@ -219,7 +228,7 @@
         height: 180px;
         margin-left: 553px;
         margin-top: 148px;
-        /*border: 2px solid red;*/
+        border: 2px solid red;
         z-index: 1;
 
     }
@@ -231,7 +240,7 @@
         height: 228px;
         margin-left: 512px;
         margin-top: -425px;
-        /*border: 2px solid red;*/
+        border: 2px solid red;
         z-index: -1;
 
     }
@@ -243,7 +252,7 @@
         height: 250px;
         margin-left: 655px;
         margin-top: -191px;
-        /*border: 2px solid red;*/
+        border: 2px solid red;
         z-index: 1;
 
     }
@@ -255,7 +264,7 @@
         height: 310px;
         margin-left: 485px;
         margin-top: -110px;
-        /*border: 2px solid red;*/
+        border: 2px solid red;
         z-index: -1;
     }
 
@@ -281,7 +290,8 @@
     }
 
     #parts-to-drag {
-        margin-top: 300px;
+        margin-top: -300px;
+        margin-left: 800px;
         display: none;
     }
 
@@ -294,7 +304,7 @@
     }
 
     button {
-        background-color: white; /* Green */
+        background-color: #00ff08; /* Green */
         border: 1px solid black;
         color: black;
         padding: 16px 32px;
