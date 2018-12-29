@@ -3,21 +3,22 @@
         <h1>DnT's "Puzzle" </h1>
         <!--<a href="https://www.w3schools.com/HTML/html5_draganddrop.asp" target="_blank">Zdroj</a>-->
         <h2>
-            <span id="gameOver">Vyhral si, som rád</span>
+            <span id="gameOver">Vyhral(a) si, som rád</span>
             <label id="minutes">00</label>:<label id="seconds">00</label>
         </h2>
         <div>
             <button id="playButton" v-on:click="watch">Play</button>
             <button id="restartButton" v-on:click="restart">Restart</button>
             <button id="demoButton" v-on:click="demo">Demo</button>
+            <span id = "spanDemo"></span>
 
         </div>
 
-        <v-container  grid-list-md text-xs-center fluid>
+        <v-container grid-list-md text-xs-center fluid>
             <v-layout align-start justify-center row>
-                <v-flex xs12 id ="puzzleFlex">
+                <v-flex xs12 id="puzzleFlex">
                     <!--<v-card>-->
-                    <div id ="myAnimation"></div>
+                    <div id="myAnimation"></div>
                     <div id="map-Antananarivo" v-on:drop="drop" v-on:dragover="allowDrop"></div>
                     <div id="map-Antisiranana" v-on:drop="drop" v-on:dragover="allowDrop"></div>
                     <div id="map-Fianarantsoa" v-on:drop="drop" v-on:dragover="allowDrop"></div>
@@ -50,6 +51,7 @@
                         <img id="drag-seal-part2" draggable="true" v-on:dragstart="drag" src="./imgDinh/Seal_2.png"
                              alt="flag-red">
                     </div>
+
                     <!--</v-card>-->
                 </v-flex>
             </v-layout>
@@ -146,45 +148,48 @@
 
             },
             demo: function demo() {
-                document.getElementById("playButton").style.background = "red";
                 document.getElementById("playButton").disabled = true;
-                document.getElementById("demoButton").style.background = "red";
+                document.getElementById("playButton").style.background = "red";
+
                 document.getElementById("demoButton").disabled = true;
+                document.getElementById("demoButton").style.background = "red";
+
                 document.getElementById("parts-to-drag").style.display = "block";
-                // setTimeout(function () {
-                //     document.getElementById(dropID[0]).appendChild(document.getElementById(dragID[0]));
-                //     document.getElementById(dropID[0]).style.backgroundImage = "none";
-                // }, 1000)
+
+                let elem = document.getElementById("myAnimation");
+                let posX;
+                let posY;
+                let id;
+
                 myMove();
-                for (let i = 1; i < dropID.length;i++) {
-                    setTimeout(function (){
+                for (let i = 1; i < dropID.length; i++) {
+                    setTimeout(function () {
                         document.getElementById(dropID[i]).appendChild(document.getElementById(dragID[i]));
                         document.getElementById(dropID[i]).style.backgroundImage = "none";
-                    }, i*1000);
-
+                    }, i * 1000);
                 }
+                document.getElementById("spanDemo").innerText = "\n1) Stlač ľavým tlačidlom na obrázok, kt. chceš posunúť\n2) Posuň obrázok, kde ho chceš pustiť a pusti ľavé tlačidlo\n3) Ak si ho pustil na správne miesto, tak obrázok sa tam položí";
 
                 function myMove() {
-                        let elem = document.getElementById("myAnimation");
-                        elem.style.zIndex = "10";
-                        elem.appendChild(document.getElementById(dragID[0]));
+                    elem.style.zIndex = "10";
+                    elem.appendChild(document.getElementById(dragID[0]));
+                    posX = 550;
+                    posY = 0;
+                    id = setInterval(frame, 10);
+                }
 
-                    let posX = 550;
-                    let posY = 0;
-                    let id = setInterval(frame, 5);
-                    function frame() {
-                        if (posX === 420) {
-                            clearInterval(id);
-                            elem.style.zIndex = "-1";
-                            document.getElementById(dropID[0]).style.backgroundImage = "none";
-                            document.getElementById("map-Antananarivo").appendChild(document.getElementById(dragID[0]));
+                function frame() {
+                    if (posX === 485) {
+                        clearInterval(id);
+                        elem.style.zIndex = "-1";
+                        document.getElementById(dropID[0]).style.backgroundImage = "none";
+                        document.getElementById("map-Antananarivo").appendChild(document.getElementById(dragID[0]));
 
-                        } else {
-                            posX--;
-                            posY -= 2;
-                            elem.style.top = posX + 'px';
-                            elem.style.left = posY + 'px';
-                        }
+                    } else {
+                        posX--;
+                        posY -= 4;
+                        elem.style.top = posX + 'px';
+                        elem.style.left = posY + 'px';
                     }
                 }
             },
@@ -290,6 +295,7 @@
         margin-top: -400px;
         /*border: 2px solid blue;*/
     }
+
     #seal-part2 {
         position: relative;
         background-image: url("imgDinh/Seal_2_Blank.png");
@@ -330,11 +336,11 @@
         /*cursor: pointer;*/
     }
 
-    #mainContainer{
+    #mainContainer {
         margin: 0 20px;
     }
 
-    #puzzleFlex{
+    #puzzleFlex {
         margin-top: 50px;
     }
 
@@ -346,6 +352,11 @@
         margin-top: -50px;
         margin-left: 880px;
         z-index: -1;
+    }
+
+    #spanDemo{
+        /*margin-top: -500px;*/
+        margin-left: 10px;
     }
 
     /*button:hover {*/
