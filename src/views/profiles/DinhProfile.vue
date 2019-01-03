@@ -7,7 +7,7 @@
                         <v-card-title class="text-xs-center"><h1>Dinh Profile</h1></v-card-title>
                         <!--<v-card-text><span>{{data.text.slice(0, 250)}} ... {{data.color}}</span></v-card-text>-->
                         <v-card-text>
-                            <img id="profilePic" src="imgProfiles/seen.jpg" alt=" Image not found">
+                            <img src="resources/imgProfiles/seen.jpg" alt=" Image not found">
                             <p>Volám sa Dinh Nguyen Tien. Priateľom a známym som to zjedodušil, volajú ma Dinhko (ale tu
                                 v Bratislave sa
                                 predstavujem už ako Dinh :D ).
@@ -20,7 +20,7 @@
 
                             <p>Nepohrdnem ani chvíľami s priateľmi. S nimi trávim dosť voľného času. S tromi dokonca
                                 zdieľam aj domácnosť.
-                                Skvelé rozhodnutie- tú pohodu a slobodu by som určite za neustále internátne party
+                                Skvelé rozhodnutie - tú pohodu a slobodu by som určite za neustále internátne party
                                 nemenil. V lete zvyknem
                                 brigádovať a pomáhať aj rodičom.</p>
 
@@ -50,5 +50,9 @@
 </script>
 
 <style scoped>
-
+    img {
+        width: 200px;
+        margin: 0px 25px 0 0;
+        float: left;
+    }
 </style>
