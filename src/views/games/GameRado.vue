@@ -1,31 +1,26 @@
 <template>
-    <!--<div>-->
-    <!--<div v-for="data in puzzleJson.images" :key="data.id" >{{ data.id }}-->
-    <!--<img :src="require('./imgRado/' + data.src + '.jpg')" alt="nope">-->
-    <!--</div>-->
-    <!--</div>-->
-
-
     <div id="mainContainer">
-        <h1>Radoslav Hlatký</h1>
-
-        <!--<h1>DnT's "Puzzle" </h1>-->
-        <!--&lt;!&ndash;<a href="https://www.w3schools.com/HTML/html5_draganddrop.asp" target="_blank">Zdroj</a>&ndash;&gt;-->
-        <!--<h2>-->
-        <!--<span id="gameOver">Vyhral(a) si, som rád</span>-->
-        <!--<label id="minutes">00</label>:<label id="seconds">00</label>-->
-        <!--</h2>-->
-        <!--<div>-->
-        <!--<button id="playButton" v-on:click="watch">Play</button>-->
-        <!--<button id="restartButton" v-on:click="restart">Restart</button>-->
-        <!--<button id="demoButton" v-on:click="demo">Demo</button>-->
-        <!--<span id = "spanDemo"></span>-->
-
-        <!--</div>-->
+        <div class="user-layout">
+            <h1>Puzzle by RHlatky</h1>
+            <h2>
+                <span class="stop-watch">
+                     <label id="minutes">00</label>:<label id="seconds">00</label>
+                </span>
+                <span id="win">Gratulujem !</span>
+            </h2>
+            <v-btn round color="green" id="play" v-on:click="play">
+                <v-icon>play_circle_outline</v-icon>
+            </v-btn>
+            <v-btn round color="blue" id="restart" v-on:click="restart">
+                <v-icon>replay</v-icon>
+            </v-btn>
+            <v-btn round color="yellow" id="infoButton" v-on:click="info">
+                <v-icon>info_outline</v-icon>
+            </v-btn>
+        </div>
         <v-container grid-list-md text-xs-center fluid>
             <v-layout align-start justify-center row>
-                <v-flex xs12 class="puzzleContainer">
-
+                <v-flex xs12 id="puzzle-container">
                     <div v-for="blank in puzzleJson.blanks"
                          :style="{
                          'background-image': 'url(' + require('./imgRado/' + blank.src + '.png') + ')',
@@ -37,7 +32,7 @@
 
                     </div>
 
-                    <div id="parts-to-drag">
+                    <div id="puzzles">
                         <img v-for="data in puzzleJson.images"
                              :key="data.id"
                              :src="require('./imgRado/' + data.src + '.png')"
@@ -51,14 +46,13 @@
                 </v-flex>
             </v-layout>
         </v-container>
-
     </div>
-
 </template>
 
 <script>
     import json from './imgRado/puzzle'
-    let dropped = 0;
+
+    let droppedImages = 0;
     let timer = 0;
 
     export default {
@@ -69,107 +63,76 @@
             }
         },
         methods: {
-            allowDrop: function allowDrop(ev) {
+            allowDrop: function (ev) {
                 ev.preventDefault();
             },
 
-            dropImg: function drop(ev) {
-                ev.preventDefault();
+            dropImg: function (ev) {
                 for (let i = 0; i < json.blanks.length; i++) {
                     if (ev.target.id === json.blanks[i].id) {
-                        let data = ev.dataTransfer.getData("blank-" + i);
-                        if (data) {
-                            ev.target.appendChild(document.getElementById(data));
-                            ev.target.style.backgroundImage = "none";
-                            dropped++;
-                            if (dropped === 8) {
+                        if (ev.dataTransfer.getData(json.blanks[i].id)) {
+                            ev.target.appendChild(document.getElementById(ev.dataTransfer.getData(json.blanks[i].id)));
+                            droppedImages++;
+                            if (droppedImages === 8) {
                                 clearInterval(timer);
-                                document.getElementById("gameOver").style.display = "block";
-                                document.getElementById("gameOver").style.background = "no-drop";
-
+                                document.getElementById("win").style.display = "block";
+                                document.getElementById("win").style.background = "no-drop";
                                 return;
                             }
-                            return;
                         }
                     }
                 }
             },
-            dragImg: function drag(ev) {
+            dragImg: function (ev) {
                 for (let i = 0; i < json.images.length; i++) {
                     if (ev.target.id === json.images[i].id) {
-                        ev.dataTransfer.setData("blank-" + i, ev.target.id);
+                        ev.dataTransfer.setData("blank-" + json.images[i].id, ev.target.id);
                     }
                 }
             },
 
-            watch: function watch() {
-                //https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
-                dropped = 0;
-                document.getElementById("parts-to-drag").style.display = "block";
-                document.getElementById("playButton").disabled = true;
-                document.getElementById("playButton").style.background = 'red';
-                document.getElementById("demoButton").style.background = "red";
-                document.getElementById("demoButton").disabled = true;
+            play: function () {
+                droppedImages = 0;
+                document.getElementById("puzzles").style.display = "block";
+                document.getElementById("puzzle-container").style.display = "block";
+                document.getElementById("play").disabled = true;
+                document.getElementById("play").style.background = 'red';
+                document.getElementById("infoButton").style.background = "red";
+                document.getElementById("infoButton").disabled = true;
                 let sec = 0;
 
-                function pad(val) {
+                function clock(val) {
                     return val > 9 ? val : "0" + val;
                 }
 
                 timer = setInterval(function () {
-                    document.getElementById("seconds").innerHTML = pad(++sec % 60);
-                    document.getElementById("minutes").innerHTML = pad(parseInt(sec / 60, 10));
+                    document.getElementById("seconds").innerHTML = clock(++sec % 60);
+                    document.getElementById("minutes").innerHTML = clock(parseInt(sec / 60, 10));
                 }, 1000);
 
             },
             restart: function restart() {
                 location.reload();
             },
-            demo: function demo() {
-                document.getElementById("playButton").disabled = true;
-                document.getElementById("playButton").style.background = "red";
+            info: function () {
+                document.getElementById("play").disabled = true;
+                document.getElementById("infoButton").disabled = true;
+                document.getElementById("puzzles").style.display = "block";
+                document.getElementById("puzzle-container").style.display = "block";
 
-                document.getElementById("demoButton").disabled = true;
-                document.getElementById("demoButton").style.background = "red";
-
-                document.getElementById("parts-to-drag").style.display = "block";
-
-                let elem = document.getElementById("myAnimation");
-                let posX;
-                let posY;
-                let id;
-
-                myMove();
-                for (let i = 1; i < dropID.length; i++) {
+                for (let i = 0; i < json.blanks.length; i++) {
                     setTimeout(function () {
-                        document.getElementById(dropID[i]).appendChild(document.getElementById(dragID[i]));
-                        document.getElementById(dropID[i]).style.backgroundImage = "none";
+                        for (let j = 0; j < json.images.length; j++) {
+                            if (json.blanks[i].id === "blank-" + json.images[j].id)
+                                document.getElementById(json.blanks[i].id).appendChild(document.getElementById(json.images[j].id));
+                        }
                     }, i * 1000);
                 }
-                document.getElementById("spanDemo").innerText = "\n1) Stlač ľavým tlačidlom na obrázok, kt. chceš posunúť\n2) Posuň obrázok, kde ho chceš pustiť a pusti ľavé tlačidlo\n3) Ak si ho pustil na správne miesto, tak obrázok sa tam položí";
 
-                function myMove() {
-                    elem.style.zIndex = "10";
-                    elem.appendChild(document.getElementById(dragID[0]));
-                    posX = 550;
-                    posY = 0;
-                    id = setInterval(frame, 10);
-                }
+                setTimeout(function () {
+                    location.reload();
+                }, 8500);
 
-                function frame() {
-                    if (posX === 485) {
-                        clearInterval(id);
-                        elem.style.zIndex = "-1";
-                        document.getElementById(dropID[0]).style.backgroundImage = "none";
-                        document.getElementById("map-Antananarivo").appendChild(document.getElementById(dragID[0]));
-
-                    } else {
-                        posX--;
-                        posY -= 4;
-                        elem.style.top = posX + 'px';
-                        elem.style.left = posY + 'px';
-                    }
-                }
             }
         }
     }
@@ -177,42 +140,33 @@
 
 <style>
 
-    #parts-to-drag {
-        min-width: 1100px;
-        margin-top: -500px;
-        margin-left: 1200px;
+    .stop-watch {
+        border: 2px solid black;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 50%;
     }
 
-    #parts-to-drag img {
-        margin: 0 10px;
-    }
-
-    #gameOver {
+    #win {
         display: none;
     }
 
-    /*button {*/
-    /*background-color: #00ff08; !* Green *!*/
-    /*border: 1px solid black;*/
-    /*color: black;*/
-    /*padding: 16px 32px;*/
-    /*text-align: center;*/
-    /*text-decoration: none;*/
-    /*display: inline-block;*/
-    /*font-size: 16px;*/
-    /*margin: 4px 2px;*/
-    /*!*-webkit-transition-duration: 0.4s; !* Safari *!*!*/
-    /*!*transition-duration: 0.4s;*!*/
-    /*!*cursor: pointer;*!*/
-    /*}*/
+    .user-layout {
+        text-align: center;
+    }
+
+    .user-layout button {
+        margin: 4px 2px;
+
+    }
 
     #mainContainer {
         margin: 0 20px;
     }
 
-    .puzzleContainer {
-        margin-top: 50px;
+    #puzzle-container {
         margin-left: -800px;
+        display: none;
     }
 
     #blank-1 {
@@ -220,7 +174,7 @@
         height: 292px;
         margin-left: 372px;
         margin-top: 0;
-        z-index: 5;
+        z-index: 99;
 
     }
 
@@ -229,7 +183,7 @@
         height: 243px;
         margin-left: 565px;
         margin-top: -292px;
-        z-index: 5;
+        z-index: 99;
 
     }
 
@@ -238,7 +192,7 @@
         height: 243px;
         margin-left: 724px;
         margin-top: -243px;
-        z-index: 5;
+        z-index: 99;
 
     }
 
@@ -247,7 +201,7 @@
         height: 292px;
         margin-left: 965px;
         margin-top: -243px;
-        z-index: 5;
+        z-index: 99;
 
     }
 
@@ -256,7 +210,7 @@
         height: 241px;
         margin-left: 372px;
         margin-top: -66px;
-        z-index: 5;
+        z-index: 99;
 
     }
 
@@ -265,7 +219,7 @@
         height: 289px;
         margin-left: 524px;
         margin-top: -289px;
-        z-index: 5;
+        z-index: 99;
 
     }
 
@@ -274,7 +228,7 @@
         height: 289px;
         margin-left: 724px;
         margin-top: -289px;
-        z-index: 5;
+        z-index: 99;
 
     }
 
@@ -283,8 +237,18 @@
         height: 241px;
         margin-left: 965px;
         margin-top: -241px;
-        z-index: 1;
+        z-index: 99;
 
     }
 
+    #puzzles {
+        min-width: 1100px;
+        margin-top: -470px;
+        margin-left: 1200px;
+        display: none;
+    }
+
+    #puzzles img {
+        margin: 0 10px;
+    }
 </style>

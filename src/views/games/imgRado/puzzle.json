@@ -1,36 +1,36 @@
 {
   "images": [
     {
-      "src": "puzzle_part6",
-      "id": "6"
-    },
-    {
-      "src": "puzzle_part4",
-      "id": "4"
-    },
-    {
-      "src": "puzzle_part3",
-      "id": "3"
-    },
-    {
-      "src": "puzzle_part2",
-      "id": "2"
-    },
-    {
-      "src": "puzzle_part5",
-      "id": "5"
+      "src": "puzzle_part8",
+      "id": "8"
     },
     {
       "src": "puzzle_part1",
       "id": "1"
     },
     {
+      "src": "puzzle_part3",
+      "id": "3"
+    },
+    {
+      "src": "puzzle_part6",
+      "id": "6"
+    },
+    {
       "src": "puzzle_part7",
       "id": "7"
     },
     {
-      "src": "puzzle_part8",
-      "id": "8"
+      "src": "puzzle_part4",
+      "id": "4"
+    },
+    {
+      "src": "puzzle_part5",
+      "id": "5"
+    },
+    {
+      "src": "puzzle_part2",
+      "id": "2"
     }
   ],
   "blanks": [
