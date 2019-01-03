@@ -1,25 +1,27 @@
 <template>
     <div>
-        <h1>Main Article</h1>
         <div id="app">
-            <v-container grid-list-md text-xs-center fluid>
+            <v-container grid-list-md fluid>
+                <h1>Spravodajstvo</h1>
                 <v-layout align-start justify-center row>
                     <v-flex
                             v-for="data in myJson"
-                            :key="data.title"
+                            :key="data.id"
                             :text="data.text"
                             :source="data.source"
                             :color="data.color"
                             md4
                     >
                         <v-card dark v-bind:color=data.color>
-                            <v-card-title><h2>{{data.title}}</h2></v-card-title>
-                            <v-card-text><span>{{data.text.slice(0, 250)}} ... {{data.color}}</span></v-card-text>
-                            <v-card-actions>
-                                <a :href="data.source" target="_blank">
-                                    source
-                                </a>
-                            </v-card-actions>
+                            <v-card-title class="text-xs-center"><h2>{{data.title}}</h2></v-card-title>
+                            <!--<v-card-text><span>{{data.text.slice(0, 250)}} ... {{data.color}}</span></v-card-text>-->
+                            <v-card-text><span :id="data.id">{{data.text}}</span>
+                                    <a :href="data.source" target="_blank">
+                                        source
+                                    </a>
+                            </v-card-text>
+
+
                         </v-card>
                     </v-flex>
                 </v-layout>
@@ -31,10 +33,29 @@
 <script>
     import json from '../../resources/articles'
 
+
     export default {
         data() {
             return {
                 myJson: json
+            }
+        },
+        mounted: function () {
+
+            /*TODO: zistit ako sa iteruje, bo dajak nejde :D*/
+            let text = document.getElementById(json.article1.id).innerText;
+            document.getElementById(json.article1.id).innerHTML = text;
+
+            text = document.getElementById(json.article2.id).innerText;
+            document.getElementById(json.article2.id).innerHTML = text;
+
+            text = document.getElementById(json.article3.id).innerText;
+            document.getElementById(json.article3.id).innerHTML = text;
+            // window.alert(text);
+        },
+        methods: {
+            splitText: function splitText() {
+
             }
         }
     }
@@ -49,6 +70,11 @@
     a:hover {
         text-decoration: underline;
         color: white;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 60px;
     }
 
 </style>
