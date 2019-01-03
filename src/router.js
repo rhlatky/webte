@@ -8,6 +8,7 @@ import Dinh from "./views/profiles/DinhProfile.vue";
 import Hung from "./views/profiles/HungProfile.vue";
 import GameHung from "./views/games/GameHung.vue";
 import GameDinh from "./views/games/GameDinh.vue";
+import GameRado from "./views/games/GameRado.vue";
 
 import MainArticle from "./views/article/MainArticle.vue"
 
@@ -67,6 +68,11 @@ export default new Router({
             path: "/game/Dinh",
             name: "GameDinh",
             component: GameDinh
+        },
+        {
+            path: "/game/Rado",
+            name: "GameRado",
+            component: GameRado
         },
         {
             path: "/articles/mainarticle",

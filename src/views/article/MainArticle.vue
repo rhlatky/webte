@@ -6,10 +6,10 @@
                 <v-layout align-start justify-center row>
                     <v-flex
                             v-for="data in myJson"
-                            v-bind:key="data.title"
-                            v-bind:text="data.text"
-                            v-bind:source="data.source"
-                            v-bind:color="data.color"
+                            :key="data.title"
+                            :text="data.text"
+                            :source="data.source"
+                            :color="data.color"
                             md4
                     >
                         <v-card dark v-bind:color=data.color>
@@ -38,10 +38,6 @@
             }
         }
     }
-
-    // export default {
-    //     name: "MainArticle"
-    // }
 </script>
 
 <style scoped>

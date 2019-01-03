@@ -75,17 +75,6 @@
     export default {
         name: "gameDinh",
         methods: {
-            //https://www.w3schools.com/HTML/html5_draganddrop.asp
-            //     set_zIndex: function set_zIndex(dropID_zIndex) {
-            //     for (let i = 0; i < dropID.length; i++) {
-            //         let id = dropID_zIndex; //je to tu, aby mi nepodciarkovalo, ze dropID_zIndex je unused -_-
-            //         if (id === dropID[i]) {
-            //             document.getElementById(dropID[i]).style.zIndex = "1";
-            //         } else
-            //             document.getElementById(dropID[i]).style.zIndex = "0";
-            //
-            //     }
-            // }
             allowDrop: function allowDrop(ev) {
                 ev.preventDefault();
                 // console.log("something");
@@ -252,7 +241,7 @@
     }
 
     #map-Mahajanga {
-        /*position: static;*/
+        /*position: imgRado;*/
         background-image: url("imgDinh/MahajangaBlank.png");
         width: 230px;
         height: 228px;
@@ -276,7 +265,7 @@
     }
 
     #map-Toliara {
-        /*position: static;*/
+        /*position: imgRado;*/
         background-image: url("imgDinh/ToliaraBlank.png");
         width: 180px;
         height: 310px;
