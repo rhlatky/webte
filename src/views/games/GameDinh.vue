@@ -65,6 +65,7 @@
 <script>
     let dropped = 0;
     let timer;
+    /*ech*/
     let dragID = ["drag-map-Antananarivo", "drag-map-Fianarantsoa", "drag-map-Mahajanga", "drag-map-Toamasina", "drag-map-Toliara",
         "drag-map-Antisiranana", "drag-seal-part1", "drag-seal-part2"];
 

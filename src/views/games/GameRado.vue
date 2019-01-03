@@ -75,9 +75,9 @@
 
             dropImg: function drop(ev) {
                 ev.preventDefault();
-                for (let i = 0; i < json.blanks; i++) {
+                for (let i = 0; i < json.blanks.length; i++) {
                     if (ev.target.id === json.blanks[i].id) {
-                        let data = ev.dataTransfer.getData("Part" + i);
+                        let data = ev.dataTransfer.getData("blank-" + i);
                         if (data) {
                             ev.target.appendChild(document.getElementById(data));
                             ev.target.style.backgroundImage = "none";
