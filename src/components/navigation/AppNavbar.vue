@@ -18,7 +18,7 @@
                     </v-list-tile>
                     <template v-if="item.haveChilds">
                         <v-list-group :key="i"
-                                      prepend-icon="account_circle"
+                                      :prepend-icon=item.icon
                                       :value="false"
                         >
                             <v-list-tile slot="activator">
@@ -33,6 +33,9 @@
                                         v-if="!children.haveChilds"
                                         router
                                         :to="children.link">
+                                    <v-list-tile-action>
+                                        <v-icon>{{children.icon}}</v-icon>
+                                    </v-list-tile-action>
                                     <v-list-tile-title>{{children.name}}</v-list-tile-title>
                                 </v-list-tile>
 
@@ -124,14 +127,20 @@
         name: "AppNavbar",
         data() {
             return {
-                menuItems: [{icon: "home", name: "Home", link: '/', haveChilds: false},
-                    {icon: "chrome_reader_mode", name: "Articles", link: '/articles', haveChilds: false},
+                menuItems: [
+                    {icon: "home", name: "Domov", link: '/', haveChilds: false},
+                    {icon: "chrome_reader_mode", name: "Články", link: '/articles', haveChilds: false},
+                    {icon: "videogame_asset", name: "Hry", haveChilds: true, children:[
+                            {icon: "gamepad", name: "Radoslav", link: '/game/rado', haveChilds: false},
+                            {icon: "gamepad", name: "Dinh", link: '/game/dinh', haveChilds: false},
+                            {icon: "gamepad", name: "Hung", link: '/game/hung', haveChilds: false},
+                        ]},
                     {
-                        icon: "lock_open", name: "About us", haveChilds: true, children: [
-                            {icon: "face", name: "Team", link: '/team', haveChilds: false},
+                        icon: "lock_open", name: "O nás", haveChilds: true, children: [
+                            {icon: "group", name: "Tím", link: '/team', haveChilds: false},
                             {
                                 icon: "face",
-                                name: "Profiles", haveChilds: true,
+                                name: "Členovia tímu", haveChilds: true,
                                 children: [{
                                     icon: "face",
                                     name: "Radoslav Hlatký",
