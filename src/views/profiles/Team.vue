@@ -16,6 +16,7 @@
                             <v-card class="cards"
                                     slot-scope="{ hover }"
                                     :class="`elevation-${hover ? 24 : 4}`"
+                                    color="#E3F2FD"
                             >
                                 <v-toolbar
                                         color="#007bff"
@@ -84,9 +85,9 @@
 
     img {
         width: 20%;
-        margin: 0 25px 0 0;
-        float: left;
-        /*margin: 20px;*/
+        display: block;
+        margin: 0 auto 10px;
+        /*float: left;*/
 
     }
 </style>

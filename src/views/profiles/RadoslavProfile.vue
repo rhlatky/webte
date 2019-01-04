@@ -3,13 +3,14 @@
         <v-container grid-list-md fluid>
             <v-layout align-start justify-center row>
                 <v-flex md6>
-                    <v-card light>
+                    <v-card light color="#E3F2FD">
                         <v-toolbar
                                 color="#007bff"
                                 dark
                         >
                             <v-toolbar-title>Radoslav Hlatký</v-toolbar-title>
-                        </v-toolbar>                        <!--<v-card-text><span>{{data.text.slice(0, 250)}} ... {{data.color}}</span></v-card-text>-->
+                        </v-toolbar>
+                        <!--<v-card-text><span>{{data.text.slice(0, 250)}} ... {{data.color}}</span></v-card-text>-->
                         <v-card-text>
                             <img src="./resources/imgProfiles/rado.jpg" alt=" Image not found">
                             <div id="profileText"></div>
@@ -18,7 +19,7 @@
                 </v-flex>
 
                 <v-flex md6>
-                    <v-card light>
+                    <v-card light color="#E3F2FD">
                         <!--<v-card-title class="text-xs-center vCard"><h1>Kontakt</h1></v-card-title>-->
                         <!--<v-card-text><span>{{data.text.slice(0, 250)}} ... {{data.color}}</span></v-card-text>-->
                         <v-toolbar
