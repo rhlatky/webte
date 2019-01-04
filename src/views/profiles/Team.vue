@@ -14,14 +14,17 @@
                     <router-link :to="data.link" tag="li">
                         <v-hover>
                             <v-card class="cards"
-                                    dark color="#007bff"
                                     slot-scope="{ hover }"
                                     :class="`elevation-${hover ? 24 : 4}`"
                             >
-                                <v-card-title class=" text-xs-center">
-                                    <h2 style="text-decoration: none">{{data.title}}</h2>
-                                </v-card-title>
-
+                                <v-toolbar
+                                        color="#007bff"
+                                        dark
+                                >
+                                    <v-toolbar-title>{{data.title}}</v-toolbar-title>
+                                </v-toolbar>
+                                <!--<img src="./resources/imgProfiles/seen.jpg" alt=" Image not found">-->
+                                <!--<img :src="require('./imgProfiles/' + data.src + '.jpg')" alt="image not found">-->
                                 <v-card-text>
                                     <span :id="data.id">{{data.text.slice(0, 205)}} ...</span>
                                 </v-card-text>

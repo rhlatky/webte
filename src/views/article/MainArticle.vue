@@ -13,6 +13,9 @@
                 >
                     <v-card dark v-bind:color=data.color>
                         <v-card-title class="text-xs-center"><h2>{{data.title}}</h2></v-card-title>
+                        <img :src="require('./imgArticle/' + data.src + '.jpg')"
+                             alt="image not found"
+                        >
                         <!--<v-card-text><span>{{data.text.slice(0, 250)}} ... {{data.color}}</span></v-card-text>-->
                         <v-card-text><span :id="data.id">{{data.text}}</span>
                             <a :href="data.source" target="_blank">
@@ -68,6 +71,12 @@
     h1 {
         text-align: center;
         font-size: 60px;
+    }
+
+    img {
+        width: 70%;
+        margin: 0 20px;
+
     }
 
 </style>
