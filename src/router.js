@@ -17,14 +17,7 @@ Vue.use(Router);
 export default new Router({
     linkExactActiveClass: "active",
     routes: [
-        {
-            path: "/~xhlatky/projekt/dist",
-            name: "startHome",
-            component: Home,
-            meta: {
-                breadCrumb: {text: 'Domov', disabled: false, href: '/'}
-            }
-        },{
+       {
             path: "/",
             name: "home",
             component: Home,

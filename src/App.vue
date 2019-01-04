@@ -26,6 +26,11 @@
                 breadCrumbList: []
             }
         },
+        mounted() {
+            if (sessionStorage.crumbs.length > 0) {
+                this.breadCrumbList = JSON.parse(sessionStorage.getItem("crumbs"));
+            }
+        },
         watch: {
             '$route'() {
                 let routeCrumb = this.$route.meta.breadCrumb;
@@ -37,6 +42,8 @@
                         breadCrumbList.shift();
                         breadCrumbList.push(routeCrumb);
                     }
+                sessionStorage.setItem("crumbs", JSON.stringify(breadCrumbList));
+
                 this.breadCrumbList = breadCrumbList;
             }
         }
