@@ -30,7 +30,7 @@
                     </router-link>
 
                 </v-flex>
-                <v-date-picker v-model="picker" :show-current = "true"></v-date-picker>
+                <!--<v-date-picker v-model="picker" :show-current = "true"></v-date-picker>-->
 
             </v-layout>
         </v-container>
@@ -45,10 +45,10 @@
         name: "Team",
         data() {
             return {
-                myJson: json,
-                picker: new Date().toISOString().substr(0, 10),
-                landscape: false,
-                reactive: false
+                myJson: json
+                // picker: new Date().toISOString().substr(0, 10),
+                // landscape: false,
+                // reactive: false
             }
         },
         mounted: function () {
