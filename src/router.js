@@ -18,7 +18,7 @@ export default new Router({
     linkExactActiveClass: "active",
     routes: [
         {
-            path: "'/~xhlatky/projekt/dist'",
+            path: "/~xhlatky/projekt/dist",
             name: "startHome",
             component: Home,
             meta: {
