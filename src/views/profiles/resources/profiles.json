@@ -3,18 +3,24 @@
     "id": "profile1",
     "title": "Radoslav Hlatký",
     "text": "<p>Volám sa Dinh Nguyen Tien. Priateľom a známym som to zjedodušil, volajú ma Dinhko (ale tu v Bratislave sa predstavujem už ako Dinh :D ). Korene mám vo Vietname, ale narodil som sa v Bardejove, na osemročné gymnázium som chodil do Prešova a na teraz som zakotvil v Bratislave kvôli vysokej škole, ktorá ma celkom baví (Kappa). Študujem aplikovanú informatiku na STU FEI. Vo voľnom čase sa venujem športu, keď ma náhodou nebolí koleno alebo kríže :D. To mi v poslednom čase dosť znepríjemňuje behanie a hranie futbalu.</p> <p>Nepohrdnem ani chvíľami s priateľmi. S nimi trávim dosť voľného času. S tromi dokonca zdieľam aj domácnosť. Skvelé rozhodnutie - tú pohodu a slobodu by som určite za neustále internátne party nemenil. V lete zvyknem brigádovať a pomáhať aj rodičom.</p> <p>Myslím si, že je veľmi dôležité aby sa študenti snažili aspoň trochu zarobiť na vlastné peniaze. Rozširuje to obzory a mení aj charakter. Človek si zrazu oveľa viac váži to, čo vlastní.Je viac vďačný a ohľaduplný.Určite si v blízkej budúcnosti nájdem nejakú dobrú brigádu aj z môjho vlastného odboru. Teraz sa však chcem naplno venovať mojej bakalárskej práci. </p>",
-    "color": "pink"
+    "color": "pink",
+    "link": "/team/radoslav"
   },
   "profile2": {
     "id": "profile2",
     "title": "Dinh Nguyen Tien",
     "text": "<p>Volám sa Dinh Nguyen Tien. Priateľom a známym som to zjedodušil, volajú ma Dinhko (ale tu v Bratislave sa predstavujem už ako Dinh :D ). Korene mám vo Vietname, ale narodil som sa v Bardejove, na osemročné gymnázium som chodil do Prešova a na teraz som zakotvil v Bratislave kvôli vysokej škole, ktorá ma celkom baví (Kappa). Študujem aplikovanú informatiku na STU FEI. Vo voľnom čase sa venujem športu, keď ma náhodou nebolí koleno alebo kríže :D. To mi v poslednom čase dosť znepríjemňuje behanie a hranie futbalu.</p> <p>Nepohrdnem ani chvíľami s priateľmi. S nimi trávim dosť voľného času. S tromi dokonca zdieľam aj domácnosť. Skvelé rozhodnutie - tú pohodu a slobodu by som určite za neustále internátne party nemenil. V lete zvyknem brigádovať a pomáhať aj rodičom.</p> <p>Myslím si, že je veľmi dôležité aby sa študenti snažili aspoň trochu zarobiť na vlastné peniaze. Rozširuje to obzory a mení aj charakter. Človek si zrazu oveľa viac váži to, čo vlastní.Je viac vďačný a ohľaduplný.Určite si v blízkej budúcnosti nájdem nejakú dobrú brigádu aj z môjho vlastného odboru. Teraz sa však chcem naplno venovať mojej bakalárskej práci. </p>",
-    "color": "green"
+    "src": "./imgProfiles/seen.jpg",
+    "color": "green",
+    "link": "/team/dinh"
+
   },
   "profile3": {
     "id": "profile3",
     "title": "Hung Tran Minh",
     "text": "<p>Volám sa Dinh Nguyen Tien. Priateľom a známym som to zjedodušil, volajú ma Dinhko (ale tu v Bratislave sa predstavujem už ako Dinh :D ). Korene mám vo Vietname, ale narodil som sa v Bardejove, na osemročné gymnázium som chodil do Prešova a na teraz som zakotvil v Bratislave kvôli vysokej škole, ktorá ma celkom baví (Kappa). Študujem aplikovanú informatiku na STU FEI. Vo voľnom čase sa venujem športu, keď ma náhodou nebolí koleno alebo kríže :D. To mi v poslednom čase dosť znepríjemňuje behanie a hranie futbalu.</p> <p>Nepohrdnem ani chvíľami s priateľmi. S nimi trávim dosť voľného času. S tromi dokonca zdieľam aj domácnosť. Skvelé rozhodnutie - tú pohodu a slobodu by som určite za neustále internátne party nemenil. V lete zvyknem brigádovať a pomáhať aj rodičom.</p> <p>Myslím si, že je veľmi dôležité aby sa študenti snažili aspoň trochu zarobiť na vlastné peniaze. Rozširuje to obzory a mení aj charakter. Človek si zrazu oveľa viac váži to, čo vlastní.Je viac vďačný a ohľaduplný.Určite si v blízkej budúcnosti nájdem nejakú dobrú brigádu aj z môjho vlastného odboru. Teraz sa však chcem naplno venovať mojej bakalárskej práci. </p>",
-    "color": "purple"
+    "color": "purple",
+    "link": "/team/hung"
+
   }
 }

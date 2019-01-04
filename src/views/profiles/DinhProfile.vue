@@ -7,7 +7,8 @@
                         <v-card-title class="text-xs-center"><h1>Dinh Profile</h1></v-card-title>
                         <!--<v-card-text><span>{{data.text.slice(0, 250)}} ... {{data.color}}</span></v-card-text>-->
                         <v-card-text>
-                            <img src="resources/imgProfiles/seen.jpg" alt=" Image not found">
+                            <div id="skuska"></div>
+                            <img src="./resources/imgProfiles/seen.jpg" alt=" Image not found">
                             <p>Volám sa Dinh Nguyen Tien. Priateľom a známym som to zjedodušil, volajú ma Dinhko (ale tu
                                 v Bratislave sa
                                 predstavujem už ako Dinh :D ).
@@ -44,9 +45,24 @@
 </template>
 
 <script>
+    import json from './resources/profiles';
+
     export default {
-        name: "DinhProfile"
+        name: "DinhProfile",
+        mounted: function () {
+
+            /*TODO: zistit ako sa iteruje, bo dajak nejde :D*/
+            let text = json.profile2.text;
+            let photo = document.createElement("img");
+            photo.src = json.profile2.src;
+            photo.alt = "wtf";
+            document.getElementById("skuska").innerHTML = text;
+            document.getElementById("skuska").prepend(photo);
+            // window.alert(text);
+        }
     }
+
+
 </script>
 
 <style scoped>
