@@ -4,19 +4,20 @@
             <v-container grid-list-md fluid>
                 <h1>Naša webstránka</h1>
                 <v-layout align-start justify-center row>
-                    <v-flex>
-                        <p>Lorem Ipsum je fiktívny text, používaný pri návrhu tlačovín a typografie. Lorem Ipsum je štandardným
-                            výplňovým textom už od 16. storočia, keď neznámy tlačiar zobral sadzobnicu plnú tlačových znakov a
-                            pomiešal
-                            ich, aby tak vytvoril vzorkovú knihu. Prežil nielen päť storočí, ale aj skok do elektronickej sadzby, a
-                            pritom zostal v podstate nezmenený. Spopularizovaný bol v 60-tych rokoch 20.storočia, vydaním hárkov
-                            Letraset, ktoré obsahovali pasáže Lorem Ipsum, a neskôr aj publikačným softvérom ako Aldus PageMaker,
-                            ktorý
-                            obsahoval verzie Lorem Ipsum
+                    <v-flex md8>
+                        <p>Vitajte na našej webovej stránke, ktorá bola vytvorená za účelom dokončenia projektu z
+                            webových technológii (WEBTECH1). V priebehu semestra sme sa oboznámili so základnými
+                            vedomosťami z tvorby webových stránok. A táto stránka je našim aj vašim výsledkom.
+                            Na jej tvorbe sa venovali všetci členovia nášho tímu -
+                            Radoslav Hlatký, Dinh Nguyen Tien, Hung Tran Minh.
+                            Využivali sme Vuejs, google a stackoverflow. Táto stránka (okrem hier) je kompatibilná
+                            aj s mobilnými zariadeniami. V nižšie uvedenej tabuľke je menovite zaznamenané, ktorý člen
+                            tímu pracoval na akej úlohe.
                         </p>
                     </v-flex>
+                </v-layout>
+                <v-layout align-start justify-center row>
                     <img src="../assets/logo.png" alt="Image not found">
-                    <img src="../assets/logo.svg" alt="Image not found">
                 </v-layout>
             </v-container>
 
@@ -136,7 +137,7 @@
     }
 
     img {
-        width: 10%;
+        width: 5%;
         /*height: 200px;*/
         margin: 0px 25px 0 0;
         /*float: left;*/
