@@ -1,7 +1,7 @@
 <template>
   <div class="mainCon">
-    <h1>Checklist</h1>
     <table id="checklist">
+      <caption><h2>Checklist</h2></caption>
       <tr>
         <th class="headers"></th>
         <th class="headers">Radoslav Hlatký</th>
@@ -100,5 +100,11 @@ export default {
   }
   tr:nth-child(even){
     background-color: #eaeaea;
+  }
+  caption {
+    caption-side: top;
+    background-color: #1E88E5;
+    text-align: center;
+    color: white;
   }
 </style>
