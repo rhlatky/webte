@@ -68,9 +68,11 @@
 
         <v-toolbar id="toolbar" dense dark class="primary">
 
-            <v-toolbar-side-icon  class="hidden-sm-and-up" @click.stop="sideNav = !sideNav"></v-toolbar-side-icon>
+            <v-toolbar-side-icon class="hidden-sm-and-up" @click.stop="sideNav = !sideNav"></v-toolbar-side-icon>
 
-            <v-toolbar-title router to="/" tag="span" style="cursor: pointer; margin-left: -5px; margin-right: 5px">WebTe project</v-toolbar-title>
+            <v-toolbar-title router to="/" tag="span" style="margin-left: -5px; margin-right: 5px">
+                WebTe project
+            </v-toolbar-title>
 
             <v-toolbar-items class="hidden-xs-only">
                 <template v-for="(item, i) in menuItems">
@@ -124,16 +126,6 @@
             return {
                 menuItems: [{icon: "home", name: "Home", link: '/', haveChilds: false},
                     {icon: "chrome_reader_mode", name: "Articles", link: '/articles', haveChilds: false},
-                    {
-                        icon: "room", name: "Organize Meetup", haveChilds: true, children: [{
-                            icon: "room",
-                            name: "Child 1", haveChilds: true,
-                            children: [{icon: "face", name: "Child 1.2", link: '/child12', haveChilds: false}]
-                        },
-                            {icon: "face", name: "Child 2", link: '/child2', haveChilds: false}
-                        ]
-                    },
-                    {icon: "face", name: "Sign up", link: '/signup', haveChilds: false},
                     {
                         icon: "lock_open", name: "About us", haveChilds: true, children: [
                             {icon: "face", name: "Team", link: '/team', haveChilds: false},
