@@ -1,0 +1,24 @@
+{
+  "profile1": {
+    "id": "profile1",
+    "title": "Radoslav Hlatký",
+    "text": "<p>Volám sa Radoslav Hlatký. Pochádzam zo Šale ale momentálne bývam na internáte a študujem aplikovanú informatiku na STU FEI. Vo voľnom čase (haha voľný čas na FEI) pracujem ako front-end developer v jednej malej neznámej firme ktorej názov neprezradím(GDPR).Primárne pracujem s Vue JS čo je vlastne javascriptový framevork podobný Reactu alebo Angularu.Ďalej sa už 4 roky venujem thajskému boxu(Muay Thai) ktorý ma neskutočne baví a po novom chodím aj na zápasy. Nepohrdnem ani chvíľami s priateľmi. Na nich si vždy nájdem trochu času. A keďže už seriózne neviem čo napísať tak sem pridám nejaký výcuc z výcucu výcucu ohľadom thajského boxu. </p> <p> Thajský box alebo thaibox alebo thajbox (svetovo známy ako muay thai, po thajsky มวยไทย) je bojový šport pochádzajúci z Thajska. Thajský box je známy aj ako umenie ôsmich končatín, pretože v zápase sa využívajú údery päsťami, údery lakťami, kopy nohou a kolená. Thajský box má pôvod vo vojenskom výcviku, ktorý Thajská armáda vykonáva už niekoľko storočí, pretože tento bojový štýl vznikol vo vojnách v boji muža proti mužovi. Thajský box má bohatú kultúru a tradície, vychádzajúce z budhizmu a animizmu.</p>",
+    "color": "pink",
+    "link": "/team/radoslav"
+  },
+  "profile2": {
+    "id": "profile2",
+    "title": "Dinh Nguyen Tien",
+    "text": "<p>Volám sa Dinh Nguyen Tien. Priateľom a známym som to zjedodušil, volajú ma Dinhko (ale tu v Bratislave sa predstavujem už ako Dinh :D ). Korene mám vo Vietname, ale narodil som sa v Bardejove, na osemročné gymnázium som chodil do Prešova a na teraz som zakotvil v Bratislave kvôli vysokej škole, ktorá ma celkom baví (Kappa). Študujem aplikovanú informatiku na STU FEI. Vo voľnom čase sa venujem športu, keď ma náhodou nebolí koleno alebo kríže :D. To mi v poslednom čase dosť znepríjemňuje behanie a hranie futbalu.</p> <p>Nepohrdnem ani chvíľami s priateľmi. S nimi trávim dosť voľného času. S tromi dokonca zdieľam aj domácnosť. Skvelé rozhodnutie - tú pohodu a slobodu by som určite za neustále internátne party nemenil. V lete zvyknem brigádovať a pomáhať aj rodičom.</p> <p>Myslím si, že je veľmi dôležité aby sa študenti snažili aspoň trochu zarobiť na vlastné peniaze. Rozširuje to obzory a mení aj charakter. Človek si zrazu oveľa viac váži to, čo vlastní.Je viac vďačný a ohľaduplný.Určite si v blízkej budúcnosti nájdem nejakú dobrú brigádu aj z môjho vlastného odboru. Teraz sa však chcem naplno venovať mojej bakalárskej práci. </p>",
+    "src": "seen.jpg",
+    "color": "green",
+    "link": "/team/dinh"
+  },
+  "profile3": {
+    "id": "profile3",
+    "title": "Hung Tran Minh",
+    "text": "<p> Volám sa Hung Tran Minh, mám 22 rokov a momentálne študujem už tretí rok na Slovenskej technickej univerzite v Bratislave na fakulte elektrotechniky a informatiky so zameraním na aplikovanú informatiku.</p><p> Tak ako každý, sú veci ktoré sa mi v škole páčia a veci ktoré nie. Počas semestra nemám veľa volného času a ak áno, tak stále stresujem kôli zadaniam, úloham alebo iným veciam ktoré treba urobiť do školy, tak asi ako každý študent univerzity. Z väčšiny vyštudovaných predmetov som si veľa neodniesol, avšak existujú predmety ktoré mi niečo dali ako napríklad predmet webové technológie. </p> <p> Život bez stresu neexistuje, preto potrebujeme stres nejakým spôsobom odbúrať. Na to nám slúžia záľubi. Každý z nás má určite aspoň jeden koníček, bez nich by nebol život životom. Väčšina mládeže v dnešnej dobe majú podobné záľuby, tiež sa veľmi od nich nelíšim. Rád pozerám filmy, počúvam hudbu, hrám počítačové hry a občas aj niečo prečítam.Takto trávim voľný čas a odbúravam stres.</p>",
+    "color": "purple",
+    "link": "/team/hung"
+  }
+}

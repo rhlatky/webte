@@ -7,10 +7,10 @@
             <label id="minutes">00</label>:<label id="seconds">00</label>
         </h2>
         <div>
-            <button id="playButton" v-on:click="watch">Play</button>
-            <button id="restartButton" v-on:click="restart">Restart</button>
-            <button id="demoButton" v-on:click="demo">Demo</button>
-            <span id = "spanDemo"></span>
+            <button id="playButton" class="button1 bouncy" v-on:click="watch">Play</button>
+            <button id="restartButton" class="button1 bouncy" v-on:click="restart">Restart</button>
+            <button id="demoButton" class="button1 bouncy" v-on:click="demo">Demo</button>
+            <span id="spanDemo"></span>
 
         </div>
 
@@ -117,9 +117,12 @@
                 dropped = 0;
                 document.getElementById("parts-to-drag").style.display = "block";
                 document.getElementById("playButton").disabled = true;
-                document.getElementById("playButton").style.background = 'red';
-                document.getElementById("demoButton").style.background = "red";
+                document.getElementById("playButton").classList.remove("bouncy");
                 document.getElementById("demoButton").disabled = true;
+                document.getElementById("demoButton").classList.remove("bouncy");
+
+
+
                 let sec = 0;
 
                 function pad(val) {
@@ -139,10 +142,9 @@
             },
             demo: function demo() {
                 document.getElementById("playButton").disabled = true;
-                document.getElementById("playButton").style.background = "red";
-
+                document.getElementById("playButton").classList.remove("bouncy");
                 document.getElementById("demoButton").disabled = true;
-                document.getElementById("demoButton").style.background = "red";
+                document.getElementById("demoButton").classList.remove("bouncy");
 
                 document.getElementById("parts-to-drag").style.display = "block";
 
@@ -311,19 +313,47 @@
         display: none;
     }
 
-    button {
-        background-color: #00ff08; /* Green */
-        border: 1px solid black;
-        color: black;
-        padding: 16px 32px;
-        text-align: center;
-        text-decoration: none;
+    button.button1 {
         display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        /*-webkit-transition-duration: 0.4s; !* Safari *!*/
-        /*transition-duration: 0.4s;*/
-        /*cursor: pointer;*/
+        padding: 0.35em 1.2em;
+        border: 0.1em solid #000000;
+        margin: 0 0.3em 0.3em 0;
+        border-radius: 0.12em;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+        color: #000000;
+        text-align: center;
+        transition: all 0.2s;
+    }
+
+    button.button1:hover {
+        color: white;
+        background-color: #007bff;
+        border: 0.1em solid #007bff;
+
+    }
+
+    @media all and (max-width: 30em) {
+        button.button1 {
+            display: block;
+            margin: 0.4em auto;
+        }
+    }
+
+    .bouncy{
+        animation:bouncy 5s infinite linear;
+        position:relative;
+    }
+    @keyframes bouncy {
+        0%{top:0em}
+        40%{top:0em}
+        43%{top:-0.9em}
+        46%{top:0em}
+        48%{top:-0.4em}
+        50%{top:0em}
+        100%{top:0em;}
     }
 
     #mainContainer {
@@ -344,15 +374,9 @@
         z-index: -1;
     }
 
-    #spanDemo{
+    #spanDemo {
         /*margin-top: -500px;*/
         margin-left: 10px;
     }
-
-    /*button:hover {*/
-    /*background-color: #4CAF50;*/
-    /*color: white;*/
-    /*}*/
-
 
 </style>
