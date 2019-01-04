@@ -10,7 +10,7 @@
             </tr>
             <tr>
                 <td class="headers">Trojúrovňové menu</td>
-                <td class="checkMark"></td>
+                <td class="checkMark">&#10004;</td>
                 <td class="checkMark"></td>
                 <td class="checkMark"></td>
             </tr>
@@ -24,11 +24,11 @@
                 <td class="headers">Počítadlo osobných prístupov na stránku</td>
                 <td class="checkMark"></td>
                 <td class="checkMark"></td>
-                <td class="checkMark"></td>
+                <td class="checkMark">&#10004;</td>
             </tr>
             <tr>
                 <td class="headers">Histórie prehliadania vo forme path-based breadcrumbs</td>
-                <td class="checkMark"></td>
+                <td class="checkMark">&#10004;</td>
                 <td class="checkMark"></td>
                 <td class="checkMark"></td>
             </tr>
@@ -59,8 +59,8 @@
             <tr>
                 <td class="headers">Grafický návrh</td>
                 <td class="checkMark">&#10004;</td>
-                <td class="checkMark"></td>
-                <td class="checkMark"></td>
+                <td class="checkMark">&#10004;</td>
+                <td class="checkMark">&#10004;</td>
             </tr>
         </table>
     </div>
