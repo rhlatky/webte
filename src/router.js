@@ -1,7 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
-import About from "./views/About.vue";
 import Team from "./views/profiles/Team.vue";
 import Radoslav from "./views/profiles/RadoslavProfile.vue";
 import Dinh from "./views/profiles/DinhProfile.vue";
@@ -23,15 +22,7 @@ export default new Router({
             name: "home",
             component: Home,
             meta: {
-                breadCrumb: {text: 'Home', disabled: false, href: '/'}
-            }
-        },
-        {
-            path: "/about",
-            name: "about",
-            component: About,
-            meta: {
-                breadCrumb: {text: 'About', disabled: false, href: '/about'}
+                breadCrumb: {text: 'Domov', disabled: false, href: '/'}
             }
         },
         {
@@ -39,15 +30,15 @@ export default new Router({
             name: "team",
             component: Team,
             meta: {
-                breadCrumb: {text: 'Team', disabled: false, href: '/team'}
+                breadCrumb: {text: 'Tím', disabled: false, href: '/team'}
             }
         },
         {
             path: "/team/radoslav",
-            name: "radoslav",
+            name: "Radoslav",
             component: Radoslav,
             meta: {
-                breadCrumb: {text: 'Radoslav', disabled: false, href: '/team/Radoslav'}
+                breadCrumb: {text: 'Radoslav', disabled: false, href: '/team/radoslav'}
             }
         },
         {
@@ -67,27 +58,27 @@ export default new Router({
             }
         },
         {
-            path: "/game/Hung",
+            path: "/game/hung",
             name: "GameHung",
             component: GameHung,
             meta: {
-                breadCrumb: {text: 'Game-Hung', disabled: false, href: '/game/Hung'}
+                breadCrumb: {text: 'Hra-Hung', disabled: false, href: '/game/hung'}
             }
         },
         {
-            path: "/game/Dinh",
+            path: "/game/dinh",
             name: "GameDinh",
             component: GameDinh,
             meta: {
-                breadCrumb: {text: 'Game-Dinh', disabled: false, href: '/game/Dinh'}
+                breadCrumb: {text: 'Hra-Dinh', disabled: false, href: '/game/dinh'}
             }
         },
         {
-            path: "/game/Rado",
+            path: "/game/rado",
             name: "GameRado",
             component: GameRado,
             meta: {
-                breadCrumb: {text: 'Game-Rado', disabled: false, href: '/game/Rado'}
+                breadCrumb: {text: 'Hra-Rado', disabled: false, href: '/game/rado'}
             }
         },
         {
@@ -95,7 +86,7 @@ export default new Router({
             name: "mainarticle",
             component: MainArticle,
             meta: {
-                breadCrumb: {text: 'Articles', disabled: false, href: '/articles'}
+                breadCrumb: {text: 'Články', disabled: false, href: '/articles'}
             }
         }
 
