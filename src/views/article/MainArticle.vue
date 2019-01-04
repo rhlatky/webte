@@ -19,7 +19,7 @@
                         <!--<v-card-text><span>{{data.text.slice(0, 250)}} ... {{data.color}}</span></v-card-text>-->
                         <v-card-text><span :id="data.id">{{data.text}}</span>
                             <a :href="data.source" target="_blank">
-                                source
+                                Zdroj
                             </a>
                         </v-card-text>
 
@@ -75,7 +75,8 @@
 
     img {
         width: 70%;
-        margin: 0 20px;
+        display: block;
+        margin: 0 auto;
 
     }
 
