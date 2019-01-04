@@ -19,7 +19,7 @@ export default new Router({
     routes: [
         {
             path: "'/~xhlatky/projekt/dist'",
-            name: "home",
+            name: "startHome",
             component: Home,
             meta: {
                 breadCrumb: {text: 'Domov', disabled: false, href: '/'}
