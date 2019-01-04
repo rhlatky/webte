@@ -23,18 +23,14 @@
                                 >
                                     <v-toolbar-title>{{data.title}}</v-toolbar-title>
                                 </v-toolbar>
-                                <!--<img src="./resources/imgProfiles/seen.jpg" alt=" Image not found">-->
-                                <!--<img :src="require('./imgProfiles/' + data.src + '.jpg')" alt="image not found">-->
                                 <v-card-text>
+                                    <img :src="require('./resources/imgProfiles/' + data.src + '.jpg')" alt="image not found">
                                     <span :id="data.id">{{data.text.slice(0, 205)}} ...</span>
                                 </v-card-text>
                             </v-card>
                         </v-hover>
                     </router-link>
-
                 </v-flex>
-                <!--<v-date-picker v-model="picker" :show-current = "true"></v-date-picker>-->
-
             </v-layout>
         </v-container>
     </div>
@@ -42,7 +38,7 @@
 
 <script>
 
-    import json from './resources/profiles'
+    import json from './resources/profiles.json'
 
     export default {
         name: "Team",
@@ -84,5 +80,13 @@
     h1 {
         text-align: center;
         font-size: 60px;
+    }
+
+    img {
+        width: 20%;
+        margin: 0 25px 0 0;
+        float: left;
+        /*margin: 20px;*/
+
     }
 </style>

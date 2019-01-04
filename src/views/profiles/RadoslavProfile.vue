@@ -8,7 +8,7 @@
                                 color="#007bff"
                                 dark
                         >
-                            <v-toolbar-title>Dinh Nguyen Tien</v-toolbar-title>
+                            <v-toolbar-title>Radoslav Hlatký</v-toolbar-title>
                         </v-toolbar>                        <!--<v-card-text><span>{{data.text.slice(0, 250)}} ... {{data.color}}</span></v-card-text>-->
                         <v-card-text>
                             <img src="./resources/imgProfiles/rado.jpg" alt=" Image not found">
@@ -65,7 +65,7 @@
 
 <style scoped>
     img {
-        width: 200px;
+        width: 30%;
         margin: 0 25px 0 0;
         float: left;
     }

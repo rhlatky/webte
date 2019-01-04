@@ -59,8 +59,8 @@
 
 <style scoped>
     img {
-        width: 200px;
-        height: 200px;
+        width: 30%;
+        /*height: 200px;*/
         margin: 0px 25px 0 0;
         float: left;
     }

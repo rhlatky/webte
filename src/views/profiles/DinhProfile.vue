@@ -69,13 +69,9 @@
 
 <style scoped>
     img {
-        width: 200px;
+        width: 30%;
         margin: 0px 25px 0 0;
         float: left;
     }
 
-    .vCard {
-        background-color: #007bff;
-        color: white;
-    }
 </style>
