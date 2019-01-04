@@ -1,38 +1,5 @@
 <template>
     <div>
-        <v-hover>
-            <v-card
-                    slot-scope="{ hover }"
-                    :class="`elevation-${hover ? 12 : 2}`"
-                    class="mx-auto"
-                    width="344"
-            >
-                <v-card-title>
-                    <div>
-                        <span class="headline">Cafe Badilico</span>
-                        <div class="d-flex">
-                            <v-rating
-                                    :value="value"
-                                    color="amber"
-                                    dense
-                                    half-increments
-                                    readonly
-                                    size="14"
-                            ></v-rating>
-                            <div class="ml-2 grey--text text--darken-2">
-                                <span>{{ value }}</span>
-                                <span>({{ reviews }})</span>
-                            </div>
-                        </div>
-                    </div>
-                    <v-spacer></v-spacer>
-                    <v-btn icon class="mr-0">
-                        <v-icon>mdi-chevron-right</v-icon>
-                    </v-btn>
-                </v-card-title>
-            </v-card>
-        </v-hover>
-
         <v-container grid-list-md fluid>
             <h1>TEAM COMPONENT</h1>
             <v-layout align-start justify-center row>
@@ -44,14 +11,13 @@
                         :color="data.color"
                         md4
                 >
-                    <router-link :to="data.link">
-                        <!--<span>https://vuetifyjs.com/en/components/hover</span>-->
+                    <router-link :to="data.link" tag="li">
                         <v-hover>
-                            <v-card class = "cards"
+                            <v-card class="cards"
                                     dark color="#007bff"
                                     slot-scope="{ hover }"
-                                    :class="`elevation-${hover ? 12 : 2}`"
-                                    >
+                                    :class="`elevation-${hover ? 24 : 4}`"
+                            >
                                 <v-card-title class=" text-xs-center">
                                     <h2 style="text-decoration: none">{{data.title}}</h2>
                                 </v-card-title>
@@ -62,7 +28,10 @@
                             </v-card>
                         </v-hover>
                     </router-link>
+
                 </v-flex>
+                <v-date-picker v-model="picker" :show-current = "true"></v-date-picker>
+
             </v-layout>
         </v-container>
     </div>
@@ -76,7 +45,10 @@
         name: "Team",
         data() {
             return {
-                myJson: json
+                myJson: json,
+                picker: new Date().toISOString().substr(0, 10),
+                landscape: false,
+                reactive: false
             }
         },
         mounted: function () {
@@ -95,7 +67,17 @@
 </script>
 
 <style scoped>
-.cards:hover {
-    text-decoration:none ;
-}
+    /*.cards:hover {*/
+    /*text-decoration: none;*/
+    /*}*/
+
+    li {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li :hover {
+        cursor: pointer;
+    }
 </style>
