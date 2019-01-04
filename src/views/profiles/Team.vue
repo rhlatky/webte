@@ -1,8 +1,8 @@
 <template>
     <div>
-        <v-container grid-list-md fluid>
+        <v-container grid-list-md>
             <h1>Zloženie tímu</h1>
-            <v-layout align-start justify-center row>
+            <v-layout align-center justify-center row>
                 <v-flex
                         v-for="data in myJson"
                         :key="data.id"
@@ -24,8 +24,13 @@
                                 >
                                     <v-toolbar-title>{{data.title}}</v-toolbar-title>
                                 </v-toolbar>
+                                <v-img class="profile-images"
+                                        :src="require('./resources/imgProfiles/' + data.src + '.jpg')"
+                                        aspect-ratio="1"
+                                        max-width="325px"
+                                        :contain=true
+                                ></v-img>
                                 <v-card-text>
-                                    <img :src="require('./resources/imgProfiles/' + data.src + '.jpg')" alt="image not found">
                                     <span :id="data.id">{{data.text.slice(0, 205)}} ...</span>
                                 </v-card-text>
                             </v-card>
@@ -46,14 +51,9 @@
         data() {
             return {
                 myJson: json
-                // picker: new Date().toISOString().substr(0, 10),
-                // landscape: false,
-                // reactive: false
             }
         },
         mounted: function () {
-
-            /*TODO: zistit ako sa iteruje, bo dajak nejde :D*/
             let text = document.getElementById(json.profile1.id).innerText;
             document.getElementById(json.profile1.id).innerHTML = text;
 
@@ -81,13 +81,5 @@
     h1 {
         text-align: center;
         font-size: 60px;
-    }
-
-    img {
-        width: 20%;
-        display: block;
-        margin: 0 auto 10px;
-        /*float: left;*/
-
     }
 </style>

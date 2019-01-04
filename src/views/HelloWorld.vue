@@ -138,9 +138,7 @@
 
     img {
         width: 5%;
-        /*height: 200px;*/
-        margin: 0px 25px 0 0;
-        /*float: left;*/
+        margin: 0 25px 0 0;
     }
 
 

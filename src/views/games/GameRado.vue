@@ -132,7 +132,6 @@
                 setTimeout(function () {
                     location.reload();
                 }, 8500);
-
             }
         }
     }
@@ -175,7 +174,6 @@
         margin-left: 372px;
         margin-top: 0;
         z-index: 99;
-
     }
 
     #blank-2 {
@@ -184,7 +182,6 @@
         margin-left: 565px;
         margin-top: -292px;
         z-index: 99;
-
     }
 
     #blank-3 {
@@ -193,7 +190,6 @@
         margin-left: 724px;
         margin-top: -243px;
         z-index: 99;
-
     }
 
     #blank-4 {
@@ -202,7 +198,6 @@
         margin-left: 965px;
         margin-top: -243px;
         z-index: 99;
-
     }
 
     #blank-5 {
@@ -211,7 +206,6 @@
         margin-left: 372px;
         margin-top: -66px;
         z-index: 99;
-
     }
 
     #blank-6 {
@@ -220,7 +214,6 @@
         margin-left: 524px;
         margin-top: -289px;
         z-index: 99;
-
     }
 
     #blank-7 {
@@ -229,7 +222,6 @@
         margin-left: 724px;
         margin-top: -289px;
         z-index: 99;
-
     }
 
     #blank-8 {
@@ -238,7 +230,6 @@
         margin-left: 965px;
         margin-top: -241px;
         z-index: 99;
-
     }
 
     #puzzles {

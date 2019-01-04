@@ -1,7 +1,6 @@
 <template>
     <div id="mainContainer">
         <h1>DnT's "Puzzle" </h1>
-        <!--<a href="https://www.w3schools.com/HTML/html5_draganddrop.asp" target="_blank">Zdroj</a>-->
         <h2>
             <span id="gameOver">Vyhral(a) si, som rád</span>
             <label id="minutes">00</label>:<label id="seconds">00</label>
@@ -17,7 +16,6 @@
         <v-container grid-list-md text-xs-center fluid>
             <v-layout align-start justify-center row>
                 <v-flex xs12 id="puzzleFlex">
-                    <!--<v-card>-->
                     <div id="myAnimation"></div>
                     <div id="map-Antananarivo" v-on:drop="drop" v-on:dragover="allowDrop"></div>
                     <div id="map-Antisiranana" v-on:drop="drop" v-on:dragover="allowDrop"></div>
@@ -51,8 +49,6 @@
                         <img id="drag-seal-part2" draggable="true" v-on:dragstart="drag" src="./imgDinh/Seal_2.png"
                              alt="flag-red">
                     </div>
-
-                    <!--</v-card>-->
                 </v-flex>
             </v-layout>
         </v-container>
@@ -78,15 +74,11 @@
         methods: {
             allowDrop: function allowDrop(ev) {
                 ev.preventDefault();
-                // console.log("something");
             },
             drag: function drag(ev) {
-                // ev.dataTransfer.setData("text", ev.target.id);
                 for (let i = 0; i < dragID.length; i++) {
                     if (ev.target.id === dragID[i]) {
-                        // this.set_zIndex(dropID[i]);
                         ev.dataTransfer.setData("Part" + i, ev.target.id);
-                        // return;
                     }
                 }
             },
@@ -113,14 +105,12 @@
 
             },
             watch: function watch() {
-                //https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
                 dropped = 0;
                 document.getElementById("parts-to-drag").style.display = "block";
                 document.getElementById("playButton").disabled = true;
                 document.getElementById("playButton").classList.remove("bouncy");
                 document.getElementById("demoButton").disabled = true;
                 document.getElementById("demoButton").classList.remove("bouncy");
-
 
 
                 let sec = 0;
@@ -136,7 +126,6 @@
 
             },
             restart: function restart() {
-//                this.$forceUpdate();
                 location.reload();
 
             },
@@ -200,8 +189,6 @@
         height: 110px;
         margin-left: 572px;
         margin-top: 48px;
-        /*border: 2px solid pink;*/
-        /*border: 2px solid blue;*/
         z-index: 5;
 
     }
@@ -213,7 +200,6 @@
         height: 180px;
         margin-left: 661px;
         margin-top: -348px;
-        /*border: 2px solid red;*/
         z-index: -1;
 
     }
@@ -225,8 +211,6 @@
         height: 180px;
         margin-left: 662px;
         margin-top: -348px;
-        /*border: 2px solid red;*/
-        /*border: 2px solid red;*/
         z-index: 1;
 
     }
@@ -238,19 +222,16 @@
         height: 180px;
         margin-left: 553px;
         margin-top: 148px;
-        /*border: 2px solid red;*/
         z-index: 1;
 
     }
 
     #map-Mahajanga {
-        /*position: imgRado;*/
         background-image: url("imgDinh/MahajangaBlank.png");
         width: 230px;
         height: 228px;
         margin-left: 512px;
         margin-top: -425px;
-        /*border: 2px solid red;*/
         z-index: -1;
 
     }
@@ -262,19 +243,16 @@
         height: 250px;
         margin-left: 655px;
         margin-top: -191px;
-        /*border: 2px solid red;*/
         z-index: 1;
 
     }
 
     #map-Toliara {
-        /*position: imgRado;*/
         background-image: url("imgDinh/ToliaraBlank.png");
         width: 180px;
         height: 310px;
         margin-left: 485px;
         margin-top: -110px;
-        /*border: 2px solid red;*/
         z-index: -1;
     }
 
@@ -285,7 +263,6 @@
         height: 310px;
         margin-left: 150px;
         margin-top: -400px;
-        /*border: 2px solid blue;*/
     }
 
     #seal-part2 {
@@ -295,7 +272,6 @@
         height: 180px;
         margin-left: 150px;
         margin-top: -310px;
-        /*border: 2px solid red;*/
 
     }
 
@@ -342,18 +318,33 @@
         }
     }
 
-    .bouncy{
-        animation:bouncy 5s infinite linear;
-        position:relative;
+    .bouncy {
+        animation: bouncy 5s infinite linear;
+        position: relative;
     }
+
     @keyframes bouncy {
-        0%{top:0em}
-        40%{top:0em}
-        43%{top:-0.9em}
-        46%{top:0em}
-        48%{top:-0.4em}
-        50%{top:0em}
-        100%{top:0em;}
+        0% {
+            top: 0em
+        }
+        40% {
+            top: 0em
+        }
+        43% {
+            top: -0.9em
+        }
+        46% {
+            top: 0em
+        }
+        48% {
+            top: -0.4em
+        }
+        50% {
+            top: 0em
+        }
+        100% {
+            top: 0em;
+        }
     }
 
     #mainContainer {
@@ -368,14 +359,12 @@
         width: 110px;
         height: 115px;
         position: absolute;
-        /*background-color: red;*/
         margin-top: -50px;
         margin-left: 880px;
         z-index: -1;
     }
 
     #spanDemo {
-        /*margin-top: -500px;*/
         margin-left: 10px;
     }
 

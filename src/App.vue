@@ -56,4 +56,10 @@
     html {
         overflow-y: auto;
     }
+    .profile-images{
+        margin-top: 5%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 50%;
+    }
 </style>

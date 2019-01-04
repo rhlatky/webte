@@ -16,23 +16,24 @@
                 numberOfVisits: 0
             }
         },
-        mounted:function(){
-            this.showVisits() //showVisits will execute at pageload
+        mounted: function () {
+            this.showVisits()
         },
         methods: {
             showVisits: function showVisits() {
 
-                function setCookie(cname,cvalue,exdays) {
+                function setCookie(cname, cvalue, exdays) {
                     var d = new Date();
-                    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+                    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
                     var expires = "expires=" + d.toGMTString();
                     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
                 }
+
                 function getCookie(cname) {
                     var name = cname + "=";
                     var decodedCookie = decodeURIComponent(document.cookie);
                     var ca = decodedCookie.split(';');
-                    for(var i = 0; i < ca.length; i++) {
+                    for (var i = 0; i < ca.length; i++) {
                         var c = ca[i];
                         while (c.charAt(0) === ' ') {
                             c = c.substring(1);
@@ -48,12 +49,10 @@
 
                 if (isNaN(numLoads) || numLoads <= 0) {
                     setCookie('pageLoads', 1);
-                }
-                else {
+                } else {
                     setCookie('pageLoads', numLoads + 1);
                 }
                 this.numberOfVisits = getCookie('pageLoads');
-                // alert("Number of Visits: " + getCookie('pageLoads'));
             }
         }
     }

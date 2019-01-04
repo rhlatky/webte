@@ -132,7 +132,7 @@
                             hr++;
                         }
                     }
-                    time.innerHTML = "hr:min:sec"+"<br>"+(hr > 9 ? hr : "0" + hr) + ":" + (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
+                    time.innerHTML = "hr:min:sec" + "<br>" + (hr > 9 ? hr : "0" + hr) + ":" + (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
                     startWatch();
                 }
 
@@ -195,7 +195,7 @@
     .con {
         position: relative;
         margin-left: 100px;
-        margin-top:200px;
+        margin-top: 200px;
         display: none;
     }
 
@@ -308,7 +308,8 @@
         display: none;
         margin-top: 50px;
     }
-    #ti{
+
+    #ti {
         margin-top: 50px;
     }
 </style>

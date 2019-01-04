@@ -130,11 +130,13 @@
                 menuItems: [
                     {icon: "home", name: "Domov", link: '/', haveChilds: false},
                     {icon: "chrome_reader_mode", name: "Články", link: '/articles', haveChilds: false},
-                    {icon: "videogame_asset", name: "Hry", haveChilds: true, children:[
+                    {
+                        icon: "videogame_asset", name: "Hry", haveChilds: true, children: [
                             {icon: "gamepad", name: "Radoslav", link: '/game/rado', haveChilds: false},
                             {icon: "gamepad", name: "Dinh", link: '/game/dinh', haveChilds: false},
                             {icon: "gamepad", name: "Hung", link: '/game/hung', haveChilds: false},
-                        ]},
+                        ]
+                    },
                     {
                         icon: "lock_open", name: "O nás", haveChilds: true, children: [
                             {icon: "group", name: "Tím", link: '/team', haveChilds: false},
