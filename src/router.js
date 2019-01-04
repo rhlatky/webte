@@ -18,6 +18,13 @@ export default new Router({
     linkExactActiveClass: "active",
     routes: [
         {
+            path: "'/~xhlatky/projekt/dist'",
+            name: "home",
+            component: Home,
+            meta: {
+                breadCrumb: {text: 'Domov', disabled: false, href: '/'}
+            }
+        },{
             path: "/",
             name: "home",
             component: Home,
