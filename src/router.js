@@ -21,63 +21,82 @@ export default new Router({
         {
             path: "/",
             name: "home",
-            component: Home
+            component: Home,
+            meta: {
+                breadCrumb: {text: 'Home', disabled: false, href: '/'}
+            }
         },
         {
             path: "/about",
             name: "about",
-            component: About
-            // route level code-splitting
-            // this generates a separate chunk (about.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
-            //  component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+            component: About,
+            meta: {
+                breadCrumb: {text: 'About', disabled: false, href: '/about'}
+            }
         },
         {
             path: "/team",
             name: "team",
-            component: Team
+            component: Team,
+            meta: {
+                breadCrumb: {text: 'Team', disabled: false, href: '/team'}
+            }
         },
         {
             path: "/team/radoslav",
             name: "radoslav",
-            component: Radoslav
+            component: Radoslav,
+            meta: {
+                breadCrumb: {text: 'Radoslav', disabled: false, href: '/team/Radoslav'}
+            }
         },
         {
             path: "/team/dinh",
             name: "dinh",
             component: Dinh,
             meta: {
-                breadCrumb: [
-                    {text: 'Home', disaled: false, href: '/'},
-                    {text: 'Team', disabled: false, href: '/team'},
-                    {text: 'Dinh', disabled: true, href: '/team/dinh'}
-                ]
-            } //TODO meta breadcrumbs
+                breadCrumb: {text: 'Dinh', disabled: false, href: '/team/dinh'}
+            }
         },
         {
             path: "/team/hung",
             name: "hung",
-            component: Hung
+            component: Hung,
+            meta: {
+                breadCrumb: {text: 'Hung', disabled: false, href: '/team/hung'}
+            }
         },
         {
             path: "/game/Hung",
             name: "GameHung",
-            component: GameHung
+            component: GameHung,
+            meta: {
+                breadCrumb: {text: 'Game-Hung', disabled: false, href: '/game/Hung'}
+            }
         },
         {
             path: "/game/Dinh",
             name: "GameDinh",
-            component: GameDinh
+            component: GameDinh,
+            meta: {
+                breadCrumb: {text: 'Game-Dinh', disabled: false, href: '/game/Dinh'}
+            }
         },
         {
             path: "/game/Rado",
             name: "GameRado",
-            component: GameRado
+            component: GameRado,
+            meta: {
+                breadCrumb: {text: 'Game-Rado', disabled: false, href: '/game/Rado'}
+            }
         },
         {
-            path: "/articles/mainarticle",
+            path: "/articles",
             name: "mainarticle",
-            component: MainArticle
+            component: MainArticle,
+            meta: {
+                breadCrumb: {text: 'Articles', disabled: false, href: '/articles'}
+            }
         }
 
     ],
