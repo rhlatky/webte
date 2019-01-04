@@ -96,7 +96,5 @@ export default new Router({
                 breadCrumb: {text: 'Články', disabled: false, href: '/articles'}
             }
         }
-
     ],
-    mode: 'history'
 });
