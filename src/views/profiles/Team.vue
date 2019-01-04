@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-container grid-list-md fluid>
-            <h1>TEAM COMPONENT</h1>
+            <h1>Zloženie tímu</h1>
             <v-layout align-start justify-center row>
                 <v-flex
                         v-for="data in myJson"
@@ -67,9 +67,6 @@
 </script>
 
 <style scoped>
-    /*.cards:hover {*/
-    /*text-decoration: none;*/
-    /*}*/
 
     li {
         list-style-type: none;
@@ -79,5 +76,10 @@
 
     li :hover {
         cursor: pointer;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 60px;
     }
 </style>
