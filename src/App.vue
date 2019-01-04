@@ -1,9 +1,7 @@
 <template>
     <v-app>
         <app-navbar></app-navbar>
-        <v-breadcrumbs :items="breadCrumbList" mode="out-in">
-            <v-icon slot="divider">forward</v-icon>
-        </v-breadcrumbs>
+        <app-bread-crumbs :list="breadCrumbList"></app-bread-crumbs>
         <v-fade-transition mode="out-in">
             <router-view/>
         </v-fade-transition>
@@ -14,12 +12,14 @@
 <script>
     import AppNavbar from './components/navigation/AppNavbar'
     import AppFooter from './components/Footer'
+    import AppBreadCrumbs from './components/navigation/BreadCrumbs'
 
     export default {
         name: 'App',
         components: {
             AppNavbar,
-            AppFooter
+            AppFooter,
+            AppBreadCrumbs
         },
         data() {
             return {
@@ -28,7 +28,16 @@
         },
         watch: {
             '$route'() {
-                this.breadCrumbList = this.$route.meta.breadCrumb;
+                let routeCrumb = this.$route.meta.breadCrumb;
+                let breadCrumbList = this.breadCrumbList;
+
+                    if (breadCrumbList.length <= 4) {
+                        breadCrumbList.push(routeCrumb);
+                    } else {
+                        breadCrumbList.shift();
+                        breadCrumbList.push(routeCrumb);
+                    }
+                this.breadCrumbList = breadCrumbList;
             }
         }
     }
