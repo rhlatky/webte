@@ -79,12 +79,12 @@ export default {
   }
   #checklist{
     border-collapse: collapse;
-    margin: 0 auto;
+    margin: 0 auto 8% auto;
   }
   .headers {
     padding: 12px;
     text-align: left;
-    background-color: #f44336;
+    background-color: #1976D2;
     color: white;
     font-weight: bold;
   }
