@@ -23,7 +23,7 @@
                                 </v-card-title>
 
                                 <v-card-text>
-                                    <span :id="data.id">{{data.text.slice(0, 251)}} ...</span>
+                                    <span :id="data.id">{{data.text.slice(0, 205)}} ...</span>
                                 </v-card-text>
                             </v-card>
                         </v-hover>

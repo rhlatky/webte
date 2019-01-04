@@ -29,7 +29,7 @@
         mounted: function () {
 
             /*TODO: PHOTO:D*/
-            let text = json.profile2.text;
+            let text = json.profile1.text;
             document.getElementById("profileText").innerHTML = text;
 
         }

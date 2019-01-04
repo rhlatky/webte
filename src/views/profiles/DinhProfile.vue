@@ -32,7 +32,7 @@
             let text = json.profile2.text;
 
             document.getElementById("profileText").innerHTML = text;
-            document.getElementById("profileText").appendChild(photo);
+            // document.getElementById("profileText").appendChild(photo);
             // window.alert(text);
         }
     }

@@ -23,9 +23,9 @@
         mounted: function () {
 
             /*TODO: PHOTO:D*/
-            let text = json.profile2.text;
+            let text = json.profile3.text;
             document.getElementById("profileText").innerHTML = text;
-            document.getElementById("profileText").appendChild(photo);
+            // document.getElementById("profileText").appendChild(photo);
             // window.alert(text);
         }
     }
