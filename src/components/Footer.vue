@@ -2,7 +2,7 @@
     <v-footer app height="auto">
         <v-card class="flex" flat tile>
             <v-card-actions class="blue lighten-3 justify-center">
-                <h6>Number of visits: <strong>{{ numberOfVisits }}</strong></h6>
+                <h6>Navštívili ste stránku <strong>{{ numberOfVisits }}</strong> krát</h6>
             </v-card-actions>
         </v-card>
     </v-footer>
