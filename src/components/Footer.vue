@@ -2,7 +2,7 @@
     <v-footer app height="auto">
         <v-card class="flex" flat tile>
             <v-card-actions class="blue lighten-3 justify-center">
-                &copy;2019 — <strong>Vuetify</strong>
+                <h6>Number of visits: <strong>{{ numberOfVisits }}</strong></h6>
             </v-card-actions>
         </v-card>
     </v-footer>
@@ -11,6 +11,11 @@
 <script>
     export default {
         name: "Footer",
+        data() {
+            return {
+                numberOfVisits: 0
+            }
+        },
         mounted:function(){
             this.showVisits() //showVisits will execute at pageload
         },
@@ -29,10 +34,10 @@
                     var ca = decodedCookie.split(';');
                     for(var i = 0; i < ca.length; i++) {
                         var c = ca[i];
-                        while (c.charAt(0) == ' ') {
+                        while (c.charAt(0) === ' ') {
                             c = c.substring(1);
                         }
-                        if (c.indexOf(name) == 0) {
+                        if (c.indexOf(name) === 0) {
                             return c.substring(name.length, c.length);
                         }
                     }
@@ -47,7 +52,8 @@
                 else {
                     setCookie('pageLoads', numLoads + 1);
                 }
-                alert("Number of Visits: " + getCookie('pageLoads'));
+                this.numberOfVisits = getCookie('pageLoads');
+                // alert("Number of Visits: " + getCookie('pageLoads'));
             }
         }
     }

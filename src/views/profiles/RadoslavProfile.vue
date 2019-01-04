@@ -41,7 +41,7 @@
 <style scoped>
     img {
         width: 200px;
-        margin: 0px 25px 0 0;
+        margin: 0 25px 0 0;
         float: left;
     }
 </style>
