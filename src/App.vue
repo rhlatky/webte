@@ -7,23 +7,19 @@
         <v-fade-transition mode="out-in">
             <router-view/>
         </v-fade-transition>
-        <v-footer app height="auto">
-            <v-card class="flex" flat tile>
-                <v-card-actions class="blue lighten-3 justify-center">
-                    &copy;2018 — <strong>Vuetify</strong>
-                </v-card-actions>
-            </v-card>
-        </v-footer>
+        <app-footer></app-footer>
     </v-app>
 </template>
 
 <script>
     import AppNavbar from './components/navigation/AppNavbar'
+    import AppFooter from './components/Footer'
 
     export default {
         name: 'App',
         components: {
             AppNavbar,
+            AppFooter
         },
         data() {
             return {
